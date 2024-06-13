@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wie eine Webseite funktioniert</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+            background-color: aquamarine;
+        }
+        .diagram-box {
+            border: 2px solid white;
+            padding: 20px;
+            margin: 0;
+            text-align: center;
+            width: 250px;
+            position: relative;
+        }
+        .line {
+            width: 2px;
+            height: 30px;
+            background-color: white;
+            margin: 0;
+        }
+
+        .diagram-box:hover {
+            background-color: greenyellow;
+        }
+    </style>
+</head>
+<body>
+    <h1>Wie eine Webseite funktioniert</h1>
+    <div class="diagram-box">
+        <p>Gibst die Webseite ein (z.B. www.example.com)</p>
+    </div>
+    <div class="line"></div>
+    <div class="diagram-box">
+        <p>DNS-Server gibt die IP-Adresse zurück</p>
+    </div>
+    <div class="line"></div>
+    <div class="diagram-box">
+        <p>Computer verbindet sich mit dem Webserver</p>
+    </div>
+    <div class="line"></div>
+    <div class="diagram-box">
+        <p>Der Webserver schickt die Webseite zurück</p>
+    </div>
+    <div class="line"></div>
+    <div class="diagram-box">
+        <p>Browser zeigt die Webseite an</p>
+    </div>
+</body>
+</html>

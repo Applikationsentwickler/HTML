@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <title>My Website</title>
+    <style>
+        body {
+            font-family: VT323, sans-serif;
+            background-color: blanchedalmond;
+        }
+
+        h1 {
+            display: inline-block;
+        }
+
+        .links {
+            display: inline-block;
+        }
+
+        .links li {
+            display: inline-block;
+        }
+
+        .links a {
+            color: rgb(138, 21, 21);
+            text-decoration: none;
+            font-size: 20px;
+            margin: 0 8px;
+        }
+
+        .links ul {
+            padding: 0;
+        }
+
+        .navbar {
+            margin: 32px;
+        }
+
+        a.active {
+            border-bottom: 1px solid rgb(138, 21, 21);
+        }
+
+        .card {
+            width: 49.75%;
+            display: inline-block;
+            box-sizing: border-box;
+            padding: 16px;
+        }
+
+        .card img {
+            height: 500px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .card h2 {
+            display: inline-block;
+            margin: 8px 0 16px 0;
+            font-weight: 300;
+        }
+
+        .gallery {
+            padding: 16px;
+        }
+
+        .gallery img:hover {
+            opacity: 0.9;
+        }
+
+        .about {
+            width: 40%;
+            min-width: 600px;
+            margin: 100px 0 100px 200px;
+        }
+
+        .about h3 {
+            font-size: 40px;
+            font-weight: 300;
+            text-shadow: 4px 4px 4px white;
+        }
+
+        .contact {
+            margin-top: 100px;
+        }
+
+        .contact p {
+            border-bottom: 1px solid rgb(138, 21, 21);
+            font-size: 20px;
+            display: inline-block;
+        }
+        
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <h1>Sherzod Akhmedov | Animes</h1>
+        <nav class="links">
+            <ul>
+                <li><a class="active" href="index.html">My favorite Animes</a></li>
+                <li><a href="#contactlink">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="gallery">
+        <div class="card">
+            <a href="https://en.wikipedia.org/wiki/List_of_Naruto:_Shippuden_episodes"><img src="naruto_anime.jpg" alt=""></a>
+            <h2>Naruto</h2>
+        </div>
+        <div class="card">
+            <a href="https://en.wikipedia.org/wiki/Akira_(1988_film)"><img src="akira_anime.jpg" alt=""></a>
+            <h2>Akira</h2>
+        </div>
+        <div class="card">
+            <a href="https://en.wikipedia.org/wiki/Death_Note"><img src="death_note.jpg" alt=""></a>
+            <h2>Death Note</h2>
+        </div>
+        <div class="card">
+            <a href="https://en.wikipedia.org/wiki/Gintama"><img src="gintama.jpg" alt=""></a>
+            <h2>Gintama</h2>
+        </div>
+        <div class="card">
+            <a href="https://en.wikipedia.org/wiki/Hunter_%C3%97_Hunter"><img src="hunter_anime.jpg" alt=""></a>
+            <h2>Hunter x Hunter</h2>
+        </div>
+        <div class="card">
+            <a href="https://en.wikipedia.org/wiki/Jujutsu_Kaisen"><img src="jujutsu_anime.jpg" alt=""></a>
+            <h2>Jujutsu Kaisen</h2>
+        </div>
+    </section>
+    <section class="about">
+        <h3>This is my Anime TV Shows from my childhood.</h3>
+        <div class="contact" id="contactlink">
+            <p>sherzod.akhmedov@gewa.ch</p>
+        </div>
+    </section>
+</body>
+</html>
