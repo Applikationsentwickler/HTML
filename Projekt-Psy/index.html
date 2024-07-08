@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>MindCare</title>
+    <style>
+         
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#" onclick="showSection('home')">MindCare</a>
+        <div>
+            <a href="#" onclick="showSection('home')">Home</a>
+            <a href="#" onclick="showSection('about')">Über uns</a>
+            <a href="#" onclick="showSection('services')">Dienstleistungen</a>
+            <a href="#" onclick="showSection('team')">Team</a>
+            <a href="#" onclick="showSection('contact')">Kontakt</a>
+            <a href="#" onclick="showSection('blog')">Blog</a>
+        </div>
+    </nav>
+    <div class="container">
+        <div id="home">
+            <div class="hero">
+                <div>
+                    <h1>Willkommen bei MindCare</h1>
+                </div>
+            </div>
+            <div class="intro">
+                <h1>Ihre mentale Gesundheit ist unser Fokus</h1>
+                <p>Bei MindCare bieten wir eine Plattform, auf der erfahrene Psychiater und Psychologen als Freelancer zusammenarbeiten, um Ihnen die bestmögliche Unterstützung und Beratung zu bieten. Entdecken Sie unsere Dienstleistungen und lernen Sie unser engagiertes Team kennen.</p>
+            </div>
+            <div class="highlights">
+                <div class="highlight">
+                    <h3>Individuelle Betreuung</h3>
+                    <p>Unsere Experten passen jede Therapie individuell an Ihre Bedürfnisse an.</p>
+                </div>
+                <div class="highlight">
+                    <h3>Sichere Umgebung</h3>
+                    <p>Wir bieten eine sichere und vertrauensvolle Umgebung für Ihre Sitzungen.</p>
+                </div>
+                <div class="highlight">
+                    <h3>Professionelles Team</h3>
+                    <p>Unser Team besteht aus erfahrenen und qualifizierten Fachleuten.</p>
+                </div>
+            </div>
+        </div>
+        <div id="about" style="display: none;">
+            <h2>Über uns</h2>
+            <p>Wir bieten professionelle psychologische und psychiatrische Hilfe in einer sicheren und vertraulichen Umgebung.</p>
+        </div>
+        <div id="services" style="display: none;">
+            <h2>Dienstleistungen</h2>
+            <div class="service-item">
+                <img src="akhmedov.jpg" alt="Einzeltherapie">
+                <div>
+                    <h3>Einzeltherapie</h3>
+                    <p>Personalisierte Sitzungen, um individuelle Probleme zu lösen.</p>
+                </div>
+            </div>
+            <div class="service-item">
+                <img src="akhmedov.jpg" alt="Gruppentherapie">
+                <div>
+                    <h3>Gruppentherapie</h3>
+                    <p>Gemeinsame Sitzungen zur Unterstützung und zum Austausch von Erfahrungen.</p>
+                </div>
+            </div>
+            <div class="service-item">
+                <img src="akhmedov.jpg" alt="Kinder- und Jugendpsychiatrie">
+                <div>
+                    <h3>Kinder- und Jugendpsychiatrie</h3>
+                    <p>Spezialisierte Betreuung für junge Patienten.</p>
+                </div>
+            </div>
+        </div>
+        <div id="team" style="display: none;">
+            <h2>Unser Team</h2>
+            <div class="team-member">
+                <img src="akhmedov.jpg" alt="Dr. Müller">
+                <div>
+                    <h3>Dr. Müller</h3>
+                    <p>Erfahrener Psychiater mit über 20 Jahren Erfahrung.</p>
+                </div>
+            </div>
+            <div class="team-member">
+                <img src="akhmedov.jpg" alt="Frau Schmidt">
+                <div>
+                    <h3>Frau Schmidt</h3>
+                    <p>Expertin für Kinder- und Jugendpsychiatrie.</p>
+                </div>
+            </div>
+        </div>
+        <div id="contact" style="display: none;">
+            <h2>Kontakt</h2>
+            <form>
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="E-Mail" required>
+                <input type="tel" placeholder="Telefonnummer">
+                <textarea placeholder="Nachricht" required></textarea>
+                <button type="submit">Absenden</button>
+            </form>
+        </div>
+        <div id="blog" style="display: none;">
+            <h2>Blog</h2>
+            <p>Aktuelle Artikel und Beiträge zu mentaler Gesundheit, Tipps zur Stressbewältigung und mehr.</p>
+        </div>
+    </div>
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('.container > div').forEach(div => {
+                div.style.display = 'none';
+            });
+            document.getElementById(sectionId).style.display = 'block';
+        }
+    </script>
+</body>
+</html>

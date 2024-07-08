@@ -1,0 +1,947 @@
+<html>
+
+<head>
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <script type="text/javascript">
+
+        const imgData_Link = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAA7AAAAOwBeShxvQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAALiSURBVFiFtdfPa5VHFMbxj5p4veAiG1daNWr1uhGMLg2li1IV3LksmtZFFWl1oVT9D6yJi5oq3RURV+JCBEWL7tQaaKVoRUFpaYO4MBZq8QdYXJx5vRN5c/Pe680DIe87M+/9npk558wZuq8GjuI2nqa/33EMa2aA91Y9CfwAX6E/6/sAO3EPJ1DrNryOC/gR81qM68UornbTiDouYaQENoD1JbBRsRIzBh/COG7iGh5hd9Y/F/e9p0/UcbkEfgC/YFXWtjQZkxuxC991G/4NxtBX8k2/WIliOxaL6GhbtQ7gha5jXXqehYlODPgBxzuAE9uwNj3PxpN24ZuFU/V0AG/gbxEdsAy/tWvAT/goe/+6IrxPOOb2rG0vhquCNyX4X2LvYLlwqiXCy1vBx8RKFarjocmRUqqa2PMbOIRzWd9+HBZL+Sc+qwiHkzhCOMJUquM8XmMDfsW/Wf8CsSIPMYh9Ji9xn4iWM8nQQiPp24Mt2KVxvlZsQ6EdaSaFFuIPfGjqmY+IzFlvF07M8JnmYTNfrMBgNuZLnJ0JeBFqZxOk0GAyYn56n4f/krHvwi+/L7wPK4XDLcz6T+KL7P2KZrKpDO/BxWnghYZwSxQZRPHxbdZ/WoRtrzhyW8LnpP/D+F+cUDl8Kz7BP1n7LbzAKbzEanH0Xkv9n4vIOSzyxLY0fko1RBmVVzJV0usK4ROvRC4gktS4mPWnraC5joplLDQk0maV9Dr2zrcfmxyqlXRbM5X2igOjURGeh1ovfsbGdg14opkRB9KPtAsnjuiO6rwJzQNmvaYztQMvQq2jSvcuFqXnmvDc/pJx08FbxnkrHROXhkK7ReWyNGtrCMc80G04URrf06xUCiMeiRrupgitbSXwaXN7VZ0Ql4VcNeETAyaXYF2HF7Cr+F5cGqZSXeT+C92CF+H3UsTvbJEXdolSi4iQ5diDO3iMLXjeDQPKtEbcWO6Iq/WEqF6HVajh2tUbMmqyZ7IRiuYAAAAASUVORK5CYII=";
+        function hide_show_table(col_name) {
+            var checkbox_val = document.getElementById(col_name).value;
+            if (checkbox_val == "hide") {
+                var all_col = document.getElementsByClassName(col_name + "_col");
+                for (var i = 0; i < all_col.length; i++) {
+                    all_col[i].style.display = "none";
+                }
+                document.getElementById(col_name + "_head").style.display = "none";
+                document.getElementById(col_name).value = "show";
+            }
+
+            else {
+                var all_col = document.getElementsByClassName(col_name + "_col");
+                for (var i = 0; i < all_col.length; i++) {
+
+                    all_col[i].style.display = "table-cell";
+                }
+                document.getElementById(col_name + "_head").style.display = "table-cell";
+                document.getElementById(col_name).value = "hide";
+            }
+        }
+    </script>
+    <style>
+        body {
+            margin: 0;
+            font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, "sans-serif";
+            font-size: 1rem;
+            font-weight: 300;
+            line-height: 1.5;
+            color: #212529;
+            text-align: left;
+            background-color: #ffffff;
+        }
+
+        .t_special {
+            width: 100%;
+            table-layout: auto;
+            border: solid 1px #e7e5e1;
+            border-spacing: 0;
+            background-color: #ffffff;
+        }
+
+        .t_special thead th {
+
+            background-color: #5e5e5e;
+            border: solid 1px #5e5e5e;
+            color: white;
+            padding: 20px;
+            text-align: left;
+            font-size: 1.25rem;
+            max-width: 30%;
+
+        }
+
+        .t_special th {
+
+            border: solid 1px #e7e5e1;
+            color: darkred;
+            padding: 20px;
+            text-align: left;
+            vertical-align: top;
+
+        }
+
+        a {
+            color: darkred;
+            font-size: .9rem;
+        }
+
+        a:link {
+            text-decoration: none;
+        }
+
+        a:visited {
+            text-decoration: none;
+        }
+
+
+
+        .t_special tbody td {
+            border: solid 1px #e7e5e1;
+            color: #333;
+            padding: 20px;
+            vertical-align: top;
+            text-align: left;
+            font-weight: 300;
+
+        }
+
+        .td_highlight {
+            border: solid 1px #e7e5e1;
+            color: #333;
+            padding: 20px;
+            vertical-align: top;
+            text-align: left;
+            font-weight: 600;
+
+        }
+
+        tbody tr:hover {
+            background-color: #e7e5e12e;
+            ;
+        }
+
+        .t_special-horizontal tbody td {
+            border-left: none;
+            border-right: none;
+        }
+
+
+        #info_head,
+        #media_head,
+        #imd_head,
+        #ent_head {}
+
+        .cb_special {
+            margin: auto;
+            width: 90%;
+            padding: 30px;
+        }
+
+        .cb_special input[type="checkbox"] {
+
+            visibility: hidden;
+        }
+
+        .cb_special label {
+            position: relative;
+            padding-left: 2em;
+            padding-right: 1em;
+            line-height: 2;
+            cursor: pointer;
+            display: inline-flex;
+        }
+
+        .cb_special label:before {
+            box-sizing: border-box;
+            content: " ";
+            position: absolute;
+            top: 0.3em;
+            left: 0;
+            display: block;
+            width: 1.4em;
+            height: 1.4em;
+            border: 2px solid #9098A9;
+            border-radius: 6px;
+            z-index: -1;
+        }
+
+        .cb_special input[type=checkbox]:checked+label {
+            padding-left: 1em;
+            color: white;
+        }
+
+        .cb_special input[type=checkbox]:checked+label:before {
+            top: 0;
+            width: 100%;
+            height: 2em;
+            background: darkred;
+            border-color: darkred;
+
+
+        }
+
+        .cb_special label,
+
+        .cb_special label::before {
+            transition: 0.5s all ease;
+
+        }
+
+        .wrapperdiv {
+            margin: auto;
+            width: 95%;
+        }
+
+        .gw-profil-label {
+            display: block;
+            font-size: .85rem;
+            font-weight: 300;
+            margin-bottom: .2rem;
+        }
+
+        .gw-factsbox .gw-profil-dimension {
+            margin-bottom: 1rem;
+        }
+
+        .progress {
+            display: flex;
+            height: 1rem;
+            overflow: hidden;
+            font-size: .75rem;
+            background-color: #e7e5e1;
+            border-radius: .25rem;
+        }
+
+        .progress-bar {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: #fff;
+            text-align: center;
+            white-space: nowrap;
+            background-color: darkred;
+            transition: width .6s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper" class="wrapperdiv">
+        <img height="80"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAATgAAACcCAYAAADrhbcmAAAACXBIWXMAAAk6AAAJOgHwZJJKAAAEhmlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSfvu78nIGlkPSdXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQnPz4KPHg6eG1wbWV0YSB4bWxuczp4PSdhZG9iZTpuczptZXRhLyc+CjxyZGY6UkRGIHhtbG5zOnJkZj0naHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyc+CgogPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9JycKICB4bWxuczpBdHRyaWI9J2h0dHA6Ly9ucy5hdHRyaWJ1dGlvbi5jb20vYWRzLzEuMC8nPgogIDxBdHRyaWI6QWRzPgogICA8cmRmOlNlcT4KICAgIDxyZGY6bGkgcmRmOnBhcnNlVHlwZT0nUmVzb3VyY2UnPgogICAgIDxBdHRyaWI6Q3JlYXRlZD4yMDIzLTAzLTIyPC9BdHRyaWI6Q3JlYXRlZD4KICAgICA8QXR0cmliOkV4dElkPmQyY2U5ZTBiLThhYTQtNDgwYi1iM2ViLWQ5NzZmMzI1OWE5NTwvQXR0cmliOkV4dElkPgogICAgIDxBdHRyaWI6RmJJZD41MjUyNjU5MTQxNzk1ODA8L0F0dHJpYjpGYklkPgogICAgIDxBdHRyaWI6VG91Y2hUeXBlPjI8L0F0dHJpYjpUb3VjaFR5cGU+CiAgICA8L3JkZjpsaT4KICAgPC9yZGY6U2VxPgogIDwvQXR0cmliOkFkcz4KIDwvcmRmOkRlc2NyaXB0aW9uPgoKIDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PScnCiAgeG1sbnM6ZGM9J2h0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvJz4KICA8ZGM6dGl0bGU+CiAgIDxyZGY6QWx0PgogICAgPHJkZjpsaSB4bWw6bGFuZz0neC1kZWZhdWx0Jz5Db25uZWN0aW9uIENvbXBhbnkgQnJhbmRpbmcgbG9nbyAtIDI8L3JkZjpsaT4KICAgPC9yZGY6QWx0PgogIDwvZGM6dGl0bGU+CiA8L3JkZjpEZXNjcmlwdGlvbj4KCiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0nJwogIHhtbG5zOnBkZj0naHR0cDovL25zLmFkb2JlLmNvbS9wZGYvMS4zLyc+CiAgPHBkZjpBdXRob3I+aW1tZXJzaW9uIEdtYkg8L3BkZjpBdXRob3I+CiA8L3JkZjpEZXNjcmlwdGlvbj4KCiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0nJwogIHhtbG5zOnhtcD0naHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyc+CiAgPHhtcDpDcmVhdG9yVG9vbD5DYW52YTwveG1wOkNyZWF0b3JUb29sPgogPC9yZGY6RGVzY3JpcHRpb24+CjwvcmRmOlJERj4KPC94OnhtcG1ldGE+Cjw/eHBhY2tldCBlbmQ9J3InPz5djvLAAAAgAElEQVR4nO2deZQkR33nPxGZdfc9PfeMNDNCIwkhsBCHzS1zGHPswnqNbYxPfGAwYK8XFoy9BnYXr73mwb7F2Jxee+01Bnl5Xp/oGcQCRje6pdExh0ZzaLqn764zMyP2j8jMyuquq2uqZ7qr46PXmu6srMzIX2Z8M+IXv/iF0FprLBaLZQCRl7oAFovFsl5YgbNYLAOLFTiLxTKwWIGzWCwDixU4i8UysFiBs1gsA4sVOIvFMrBYgbNYLAOLFTiLxTKwWIGzWCwDixU4i8UysFiBs1gsA4sVOIvFMrBYgbNYLAOLFTiLxTKwWIGzWCwDixU4i8UysFiBs1gsA4sVOIvFMrBYgbNYLAOLFTiLxTKwWIGzWCwDixU4i8UysFiBs1gsA4sVOIvFMrBYgbNYLAOLFTiLxTKwWIGzWCwDixU4i8UysFiBs1gsA4sVOIvFMrBYgbNYLAOLFTiLxTKwWIGzWCwDixU4i8UysFiBs1gsA4sVOIvFMrBYgbNYLAOLe6kL0A1aa4QQaK27/k60vxBiHUtm6ZZe7iHY+7jeDHrd2hQCt9403GQNRDdbAEJsqhvab1rbRoDYXA+7Zesh9FpfqZeItVaibvaPLl0IgVYalEK4TuM+QWBETsqG/QedRtsoUPqCbdOLEFrxXH/Wo25tFDaFwOkgQDgOxU//JaX/+VXE6DAEavWOjkQvLJN90ysZ/s1fMhVQyuY3Q2s0YQUOFMIx7kg1v0Rw8iwIcHbvQE6ONZRhS4hcK9vMLhCcehqExNm3Ezk+YnbvwjZRpQiCgCcefoBatYIQEtMsbEQIQeD7XHbFlYxt276pKtRmInm/Th0/ysz0OVzXbdpdFULg+z479+xj177LNs092Rxd1NDg/rGnqN55GzIzgfaDVbsJ10FV53CvPtjwvaaHpLECa89j6SOfpvQXf4eeXTDHGx0i85oXM/LRd+Ps2bGqIg8qdduY61XFEkv/8X9Qvulm1PyS6Z2OjZB9wysY/vC7cCbHu7eN1iwvzFMplxCytcD5nketdnmyRH2+SovB2LZUXGZhdoZUOtVC4CRercbo+ET4NW3cFBuczSFwISKTRjCEGCoggtUChyMR1Roil4m+0fpYYddLOBK1VGTmde+g+p3bkPlhU1EBPbNA6Qtfpvq177DtHz5D6rrDcUXeLDe4F+q2cQim55h57S9S+959yPyIeRlo0NOzFP/wz4xt/ulzuFfsb2jttT44SMfBcZy6HZudv6GFMJh23hgY20pH4rgujtO6BadcN3wpsWluyeYKE1EaUKDa/KCMP60dWted5sDCr/0u1e/cijO5A5FKxQMLwnWQk5MEp84x9/O/1dBKGeQ2XPIBX3jnR/C+d19oG6dum5SLnNyO/8QJ5n/pP5qdZRejcdr8z/zTfF+tdbvGt6Wv6Po/beyuowGmTXZjNpfA9QshQGuEI/EeOUr5y/+EMzoBNW/VDdTVGnJiFO+uB6j831vMxkBtCv9DzyiFkJLaHeaa5di20DaJfXRom/Fxqt+8k+o3bjM2UU18oxbLJWJLCpzWOq6I3h0PopeLIJ2m+woh4lZH7dZ7oyMMth8uvLbarfeia1XoFCelfGq33tfwXYtlI7AlBS6JWloGOrU6jCNWhYMPg+p7W4laWMY4W5qPmJltoW1m5i9y6SyWzmxJgTMV01RYZ99OwKFVq0zHgwkaZ+/OaOPFKuolIrTNZbvjvzvaZv+ui1c8i6VLtqTAoTWEo0GZV7wA5/I96EotHCHUid3ClovSiHSG7Otfbj4IHe0DizTXln31i5A7tqE9ryGYFxK28QPE0BCZ177UfCC25iNl2ZhszadRCIQUaD9Ajo0w/KF3oMqLgEC4bjgNyYyiknIJ5qfI/+ybSb/gOnSgYEVlHzSElGg/wNm7g6H3/wJqec4ETK+0jesSLJ6n8M6fIHXNoTCweoCF37Lp2FRxcP1Ea21mPihF4Rf/LcHpcyx95A8BEOmUGSX0fdAe+be8mdFP/Zb54qC33kjYRmuGf+NnUWenWf74FwBZt43nAQGFn/9JRn/vN8wXW80asVguEVtW4CAMKMVU6JEPv4v0i6+n9Nmv4J84jRACuXcHube8lvxPvB7ABL+GrbdBr8jJDBOjf/A+Mi9/HsU/+SrBU2cRUuJctofcW19P7s2vAraWbSybhy0rcMloea01OlBkX/0isq9+UTwNLJpcrsMAx7gCX8qCXwRW2gatyb7xRrJvvNG0aoUwsxAwwgbCiptlQ7J+ApecsB35q6JI6DCurL5v+G9D3RBhuqL1cROuyoMlham8iLqw+YEpryPjWLC48l/guVdsaG6XBkRczihMZZUQdUly/3YT4+NjiqRtzCNTt40DovE76yVyDRlOVl2vbm46Ef+vvqnD9Xcqw8XOa9f+ujufM/q9r+h4PkpyQ4uCxP9rWr71fCn2VeAabgSA0mgdgJBmjmKPF6J93XD81pbsnqbGdRvNsTI9UFSGC31IARNoHApEPL9vLcfzA7QgHg1uOHYXZWm378W2TTc0jOAq1cQXKrqaH2mmgYWtzh4EoNdKeSG2ib63kdIaaUD2YP/4+4n7sPKl0c8y90XgVr5htG9G08zEa1MBdbVG8NTTBGenCc5MoZ4+j14qopaKUK0Z8UunENkMctsYzu7tOJfvwb3y8jgtj8hm6FdmidioQYCuVDsc08R7iVx2zQ/4atv4phXk1AUiOHee4Ngp/OOnUXML6IUldKmCrtRM13hkCGfHhLHHFftxDu1HpOq3LjqmrlSN7VuVTWtE2kWk09214PzQNm2vVZu0R7nMur2Ro2PGxw3/DXyfarVCtVKmVqlQq1ZRQYDSCikl0nFw3RTpdIZ0NkMmmyedyRDd65VC1025k5VRqSYJH1YhkOHgSz9ejkqpWOBbvui1GQmX/cxhGHUgwheqlBLf8yiXisb+1Sq+56FU0ODSiSbwpzOZ8CdLOpMNj1MX7mat1H48RxcscA0Fi/KvhW937+EnqH79dmrfuRv/4aMEZ6fRi8vhCByEM3xXHLEehCtyWeTOSdzDB8i+/mX4R46BTIHuw3xHpcBx8O54gNkf/XVENt28iygEuubh7Jpk281fQIwNd62xyQda+0EcWqGVonbLHVT+/v/h3f0Q/hMnUTPz6Go1+uaKcoQ2ERI5OoxzYA/pF11P7s2vIn3jCxCuSzA1y8wP/hxquRj6x1Zch+OgZuYZ+rWfZvi3f8Xk02uV+SO0TfWbdzD31vchR4ehWWUWEl2p4l6xn21f+zxk052NshbCZyuqVEopikuLzM+cZ3lxnnKpiFerEfi+6S616SJJ6ZBKpcgPDbNt524md+6KM2f00r2uVso89L07adubCIXm2uc+n0w2t4YLb83pE0c5+9STuKlWaY1Mqqkde/Zz4Mqr+nJOIBQsQalY5MzJE8ydn6JSKlGrVY3Qd+pUCZDCCF46kyVfGGJkfILRiW3k8oXwFI33oh8vywsSuMYK7Mf+mfJf30zp8zdR/Zd70EtLgERk0pByEfkcQubDI7QqfGitQKHOzVB98gzVm7+FyOSQw3mTlgf6MmVK1zyCM1MmxZJuUkmkQFe9cIJ+98La0OwOTKZgXalS+pOvUvziX+Pd+yj4NXBSJg1UNo3IZ8NvN7suUzYdBPgPH8W792GKn/0yqWddyfAHfhHt+XgPHUEUhponA3Ud1PIcarFYP17Lwof/Vqqo6Sl0qQLN0lNJiS5XEMOF9sfrCY0TPk9z56eZOz/F4vwc5VIRFQSmRRe2jJy4+7yim7TiheX7PvMz55k7P83pE8fYd/AKduzea3Zdo8hprfFq1Q4+MY2U/cofaN6qfmBarUqptgIX+N7qQ/R65vA8juMyO32O80+fie0vw5/w7Ksf3RX3QClFubRMcXmR6afP4KZSjIxPsHPvfiYmd4TnUwgh+yJyPQvc6grs4h05xsK7/jPVb9wK0kEUcsjxcXOBKnKkawh002M1bCNst6RdI45hpgqt+pzJQwgjMOl03GJY+TmEsXFddo0bbBOmQa9+8w4W3vMxvAceQaSyyKEciIIRTRUKazNhWlUcAbksopAHrfAeeJzZt74PuW0UOTJqytvsrroOYjmd8J11cS1SgkghMikImiQjCO+JsU1/kdLh3OlTnDp+lOXFBbTWSEcipYNskUeuraMb6mIoBNVKmcceuJflhXkOXX2t+fYaRa6h29ysNGE3rR8ulficCKRo7H6uKpPsb6xm0gcYdf072b+VDY3NHKR0MP43xdz0FLPTU0xMbufQ1deSyeYawo4uROR6ErgGw4atk/LffIP5n/kganEZOT5mDKCUadl1KFxTQ8QnA62C9Q0/0AnxbYYKBbqrQyUGRMKkkcXPfoX5d34U4UjkxESYu06jdWfbtCpvZFc5nAcEulw1D0SrF0CYS2/NrQmdeDk1o91nPRCVT0rJ3Mw0AsIWWt3ndKEvOa2Mj87JZDhz8jhuKsVlVxzuqaXVsfL1u2Hb4bC6WS+k7yfvLDrdtYJVogUumD0/xfIdC1x13fWMjE/0pSXXcwyGCEMHhOtQvulrzP7Ie9G+jxwbQfu+8cfRH0dh8hibIc5KCAHROhKf/Qrzv/zbyEIOkc+hPT8Wywu5lvitGqg4f9sgxKFFrSKtNY4TttaIBgTq+1zoOaJKk0pnOHXiKAuzMxclbGEz0+96mGwZaq1IpdL4vs/D997FwtxMKG4X9jJbs8AlRx+F6+I98BhzP/ch40NKpeKWxVZ8SJKjj8J1qd5yOwu/+p+QIyNmsCLof0t0s4l/t6y8lvWwWz0+E06dOBp/lhzVs6w/kV4opWKf5WMP3hcvTNRr7CH02ILTWsfxVwvv+Ri6WDahB+tQgTcbWpvl9XS5yvy7P2Y2tus6Wi4Z0f1wXJelhXmKS4v2Hl1CjIgpHMehVqlw/LEj8We9vnDWLHCm+2Uqa+lL/0D1m7fF3dKuH44oQNVxWvzI0MFdb8JudOKuTdg1X/7kn+E/9AhiuNBR+JMzBnBa2UWGdrEVsPnzEIXSJH7a7p/4TJhlCudnz0cbrdB1oOU9aLB/PeSrW6KWmptKMTP1NAtzs/G96OWerGmQIY55C+Onip/63wi3u7g0rXU8m0FXayb0IM6k2zzmy4xupkz4STRosYEfPq00wnVR84sUP/cVRG6o4/oN8UibECZQt1KlnV1EKgXZjBkNDQcANrJN1oNoPVWtFUqFEfHNBsClNKt3tfGtCSGMHYVgaWE+2rjlbNoNSZtE9yAKPG7bCBEivA/RfWtv22SX9OmnnoyXKuzlnqx9FDUMAq199x68Ox8w4Qqq9YnjKHTXQS+X0V4VZ98eUq+5Fveqg8jxEeRQHpHLopaLqLkl1OlzBKeexj92iuDJM+jKAogwhs5JTHjfQA+g8Uv6IF3KX/06wfGTyPHxti3buDtbrKBrNdxnXE7qhmfiHj6AHBtGDBcQ2Qx6qUhw6hzBufP4DzyO/9gJ1Nw8wk0jhvIIbVYSG7QKufKB1lqjgiAegHBTaTK5HNlcnnQmSyqdwnHM0nZetcrs+SmWFuaQsr3IgRm1LZeKoR9osPP99ULDDI7wHkjHIZvLkcnmyWTNDAXXdZGuiwoCgsCPZzsUFxeoVipxqE+72Qqx68BxmJ+boVIukc3lexpNXZvARW87oPKP30bXKohCvmUljgsjBWpugdTzrmPovT9F5jUvxtkx0fF0armE/8gxat+9h+o/30rtjgfQpXJPczfXFR1OOw4TA1T+9hYQTtuuTiRuam7RBOt++F1kfujFyKFC+1MpRfDESapfv43Sn/4NtdvvQxRyZqrWAPn5kg9y4PvxiOfI2ATjk5MMj46TyeZIpVvPnth74BBnnjzOk088ighbcq2IAmR9r0Y6k22531YlEjfpOIxObGNsYpLh0TFyhSEcp0mM5Apq1SrzM9OcOXmC4vIirmtiJ1sJltku8Ws1FmZnyO7NQzQtcA2sTeC0judQ1r59Nzhp6DSMKyVqYYmh9/40I5/4QGN4Q/yWXNkVA6RADuVJP/9ZpJ//LIbe+1Ms/PvfZ/njf4IYH+0qKPZiYYK1TRc8ODeDd/v9iFy25RJ6sbjNL5F986uY+IvfN/tjZio0zyoSdg1cB/fwAdzDByj8yo9T/MJfs/j+PzAzCtLpTS9yyTd74PtIx2Fs23Ymd+5idGJb0ylPOvkchRHiptcp2HP5QZaXwqh5123bAlBBgOd5VuCaIgh8j137LuPAlVc3fNLY2q3fg+h7AOlMhh179jG5aw/HjjzE1JlTiRkoTc4mwrhHAQtzs+zcux9Yu+tgzQInpCQ4M4X/2Akzw6BFAGy9hbJA4VffxugnP2i2e74RSdnZARkFy+L5iGzGnK9Pk+37iemeKpDg3XeE4NyMCcBtYpvIF6mXS6Suv4aJr3zCLCZd8yDlNmQHiY+deICiicxmLqlD4e0/gnv4ALP/+l1oL0Bs8kGI6OFVKmDbjl3sv+JK8oWh+HNji1bPQH2qkJQinpS+Y/dezp8703D8ZudVQYBqNiXNEhP1nlQQtOhJiaa3JupeSil5xjOvQ2vN1NlTuG6qo+ugtLzYs+ug6/ZeXLEA/+hTqPPzDRktViKkRJcqpJ51mNE/eJ85RhCY74TXEsW/tPoJrxCi6UVdzia42NQrHXh3PghBjVZ57JIt2JGPvjsWt+R0p5U2WGUTIWI76ppH5qU3mGSUy8utJ9BvMpRSbN+9h3xhKJx3qRKtu8YUUc1+otFRgFyhEFekdkT+JUsbonuQeJF2VY+hQaAOHr6GbC6P6tDjEEJSq1apVSs9FXdttSGaA3/8FNqrtQ9ZkBJdrVD41bciMmm055vKHA06dNHM3FQBw2E5/UePY8zavPWGEOhimfQNzyTzupeZByblxgMnna63oQJD3OITQ/k239qMmC4qRFEHq1u2nXxqEY6bapl9YyVBVymQLNB9/Uw+s1FAr5tKsXPv/vCF0jqIVwiB7/vUKusscHGfGPCfPEOnrqL2POTkNjKvfYnZ4AzGVKKWhELjnzgNjtt0fqYZcJFor0b6FS8gmhGS2KHr09Vbc+GGFv6+TU1sj8aW7FqRQoSTuzsLnB5EO24QVo5kj0/uCP1wncJGFNVEC24t3dS1dVHDB02dnW5/Mmkmf6eufQbu5XsbuguDihACtVRETc2a7mPLe6ABSfqGa6Nvxt+3rA9RWp91n4RuWRO5fIFsPt/ZLaDNKGz8xxpYWxc1cgDPLhB1w5pWTCEg8HGvPmj+Dkc8B7YSRxlEimXU/JLxg7XMvqEQ2QzOMy4zfw+oSTYcQlh92wDEPuhwwCGXK6A6BAkD+F7N/K3XpiM9CZxeXDZdsiblqrf0NM7BfWs6/GZHzS9BubJqJDSJ9hViZAg5OW42bCY/o8XSZzLZXNgYaB4LFxH5Y6MFjrpljQIXnrhYDsWuhZ/J7IXcPhH/PtBESSnKFZNtuJVgCWFacPkscjgK6LXiZtmKmErjtkmWGk+jg8T6F2urL2sSuLh5WfM6tDqMn0nkMqu+O5iECuf5neflam18dNGNHWSzWCytCKuM44ShZu1aZkKgegzsX5PAxXFImXQXzcQVWXC3wNy+ZDLLi49VSsvmIznNq2UQNuD3uMZEb1GhHaPlo75sorIPdAsuRCui6SXt97sYhbFYNiYNQhb93q5OCBP43Qu9CZytoBsQe1MslpUMxryeDUPn+bXre26LxZKkN4FzoqlIa6hUW8AHF8/P63ip/V2JymLZTDT133eQkl4HKXuaiyrSqe4qcbLfvBV8cK7b2T8pMIHP0ahQ33TOCqZlc9AgVlqjOz27mp5zQK7xW2FB3OZzLaFRnXXNa7p98AinW2XS0HYl83CyveeFqcnDbRbLFiJZP5RWCMSq7Su5uC24Qhh93HSWViLF9FKxp0JtOqJ574Ucwm1jUo2ZbF+sNNimP+K/BVrIlsEhfFzjGQptpmBpdD1ebo2sUeBMt0puG8MsjNIqzYnxz6np2fDvrVH5xFAeMum2mT2E46CXiwSRbfrWsrUtQctmwmiCV6u13CNO0qHBTUUzHtZpsn1D4rqJ0fhErZuOAv/Js9GvPbM5urZhFzWfRY4OG/9aK7tI00X1Hzlm/t4U12fpncG9v/2om9VKOaw+LaZ9hptTkcCt12T7ZLok57LdtErqGO6MSKUIjp4MU3Q7iWP0wgZvAUbJh4cLpnXr+x2LXLvtvoYvbw4ht/SGvbcRyTU3tFZUSiVk24VkjCssXotDrG2F+7W14MJK616xv2VSR8BMV8pk8B97kuDYqbCca7/JcXK86LtOG1G9xOggACGQu7ejfZOltClKI3JZarfcgVpcNuubRsewIrdpMPWh84tXKdUQhb/We1zf/xK/5BPLDABxS+pCntlyqUSlXOo4QiqEJJPLJ/5e53RJzuV7kGPDYUVusWvKRc3NUfmHb5kN4eruybUdWpFc/1ArFa8zULvrQZCpjdmtiwaYr7wcUK3fNFojshn8oyco/9U/mm1efdlFK3KbAxH+13af8Pn12/iZmhE9/42LDV3inIphfVxeXCQsSMNaqd2sd5HcH2Du/BS+5yFE68VkolXus01WU+uG3gTuwF6T661aa/0WUwqRyVL84y+hK1VEKoX2Q5GjeUVedVM9HyElQkqW/tsXqd78XeRIwTjxN5wQmPKknn2YKB9ey4dRaUQuz9J/+QzB0+cR6VQcUtPugUk++PHnfY+ns3SDkBLZsUdh1h8olcIR8xUVPKLpfU0eJU65HjrlBZfk+Xdcl/mZac6ePFF/Ia9onbZ6bqEu+FJKfN/j6VNPIR2TSr7lUo5Kkc3lyeQuhsCBESkpST/3mnjhmaYXFeY98x9+goVf+10As4q755tKqTRamRXZzb9mmwmCNUIYrdq1+KFPsvjBT5gcakpvzBToYTM7dcO1yNGRtq1brRQimyZ46mlmf+S9qPmleFUt7ftGwBN2iWyECoOngwDCvHPxalxpk9v+kndltgiO44QrtDf/PFppTQjB/Pkps416ZW8qaAkhSP4Egc/s9DkevudOzp87Gy+afDGJyikdl+OPH+GpY0+Y8knZ6EaitWBrpeLu6PEjD1MpF1suBRj5/LVSDA2PNJRhLawpuCRqfQFkXvcyip+7qeWohhAC7QfIsVGKn7sJXSwz8okP4ESZbBv3XrVFez7Vr9/K0kf/iNqt30OOjpqo5426cE1YJveqA7hXHcS752Eo5JqmT4ptMzpE7fb7mP7+H2fk936D7L+6EdFyMdwmNvID/Icep3Lzd6l+7V8QuTzYVaHWHa01juviui6VNqtBgWn1zJ2fZmbqabbt2NX+wInnulIusby4wMLsDAtzs5RLRUR4vGSL6GKRXDDGcRxOHn2MhdkZ9h26gtHxbd3NNBCCWrXCsUcfZnbqXNs1UaNFroQQjE9uX7G9e9YkcFrr2B+WufH7cQ/tIzgzhUin2ww4KORIgdKf/y3Vb95J9k2vJPPKF+JedciIXdpF13x0qYxeXMZ/5Bi12+6j+vXb8B583HQFxschCDasuMXdSt9HuC6ZH34ptTvuQYgCWvvtXwAjQwQnTjP7b95D6vqryb7+FWReegNy705ELoPIZU3Lt1RBFcuo0+fwjhzDu/cI3l0P4T/+JLq4hMjljRtAbUwbDSKZXI6lxYWWn8dLZErJEw8/QGl5mcmdu0ml0/E+QeCH635WqVbKlJaXKC0vUSmX8DwPtEY6Du6KF9+luMdJkXNTaRYX5nj4nrsoDA0zOrGN4dExcvkCjusipYOQAq00Xq1KuVhkfvY8s9Pn8Gq1BqFuhVKKbKHAyPi2eNu6rmwf97t9HzlSIPdjr2PpY59G5LLGX7bixLG/IdDI8RHU7DzFT/0vip/6C+ToEGJsxFReP4BKDVUsoZdLgEKkM8iRISAUjs2wdkE43J1/6+spfuJP43K33D0UOZE1Qubf/xhLdz/IkuMihwqQTZuXhyOhWjMit1yCwAMEIp023x2fABVYcbtYhC6S/NAwPH02DEZt0VJP+N1OHn2MMyePJ4JWzQrxvu8bV0TUMgtXATOiVl8aYC1rCq8X9cEwFSerLC0vsby4YHyFjhN33wlDQXzPIwh80KYF2qkVqrVGSIkKArbv3IPjOGitWLk2bjesef6D1jr2N+Xf8RaKn/krdLXWsolaF0Wzqr0YHzddzSBAT83GDwtSIBwHMT5CmOEOwpu+aSqtNOucuocPkP3RH6L0ha8gJsabin9E5HgVQiDyOYQsgFboQMFyCa2L4RQvAVIih/OhkGrT/dXa+OS4hCNsW4ikm2Z4ZMw89x3mUCZbPVqrxBJ40QCCDOtUs3VOdMO+G4XkdUnHQYbz07XWBKFoQ+hYEaLBb9iuTiejJ9KZDDv37o/O2JMW9DRFX0iJ9n3c/bsZev/bUcsL8ersLb8TRSUHgRlhFQKRdhGZtPk3Sl0cDjLQRuE3IvGbNSzv8G+9AzkxEYt/NxOJdTSAELbEhOOYl0I6ZX4XIhyICUyrd8ONJA8+yfs4PDpGNpvrmG022eqJBC36aXy+O4dbbCQaQptWDJDE17fqGjvXaSEEvuex98AVpDOZ2G69sGaBi7udoSANv//tZF/9ctTMrAl3WMsNMsNK3YU4NBlt2mhETWvt+7gH9jLy8feji8umddpB5KDFjY9s1M2+lnUnqsBaKxzXZduu3QSB31XQazf3bDPe136UORpxlVLi1Wps27GLPZcdqI+m9tiT6zmjrxDCdKOAiS99nNSzr0HNzNXDHfooQnFYiJQgutPDS0FS/HUQUPjZNzH84fcSzM2YGCjX6Soo0rKxSU5b3LP/ANlsjiAZyL4u54u4NAHhzWL3+nnsqNXn1WoMj45x+FnPiT+/EAHtrYsa9b8daUYCJ0aZ/OafknnNS1Az541PKeWy1kVaVxI7Ih3jsFQLS+had2/LS4kIxVgrxcjvvEHz68IAAAxUSURBVJOx//476Jpn4t1cp2F61oXSGO2+cW0yaETPYCqd5tDV16Iif3HYUu/nvYic60opfK+GCl08F+t+J/1iUXqjfs68iWxWq1WZ2LGTa5/7gnggIunr64ULWpNBR60SP0COjzD5tc8x8l/fj0inULNzaC8wldmRTQNz9YpjNZZMmJgwKVCLy6iFZfI/+QZSz7zC+LVcI3oNP1ICq/v8bRGEDvzwZ9Uxw+N2XEksPFzyhoQPxdB73sbkt/+czA++EDW/hJpbqnfznfDYLQ7fKGArPpSi/iIJ1umhj659pV3ECpt1i/E6tw1HFqLTJKi1IwiL2Wawp9uTrhwdndi+k8PXPge0JvC8sBvbvGolA33bl9bso4IA36sR+D6ZbJb9h66kMDyCUkHTcyT9wF1eTfLLTb8qhJmRkRsaYnLXHnzfN6Oi0LQM8bV1c43hVDYpHQ5ddS3XPOeGVeJ2IfSWRY5E7FckcoFCOJLh//AL5H7shyl+8s8o33Qzwemnzf6pFKRTRrTCmxAbM5qYoDEjiF4ApRraryFSaTIvfz5D/+5nyL7hFcz9wm9TvfsuM01m5WwB10FTSWQS7sI4gUaXK/URydUXiq6FGXi7NHZDBcCE1aSfdy2T//xFKn97C8XP30TtW3ej5uYAgXBTZiaC45hRubiyibpdiGxkyql9BeUK2qsisnnEyBC6VO45tXNTAoVWFXQ5HY/UNiAlulIJbdPlMbVZpTxQgXm7rrRpeN1KBYmH+8JnaCilwsWDmwzOROcMVE/uXa0123fvIVcocOLxR1mcn42j9hsGEhIhHvGgW8JwWimUDmetCHDdFLmhYYZGRhmf3M7I+DZc1yWdyfD47Ayp1GoBEEKgggDV9YXUfVwqCFBNfMWR078wPMIzrrmOyZ27OXPyOIvzc6uvMxnGEv2buE6ttWnthteYyebYtXM3u/cfIJPNNoSP9COguWeBi08ciZwTGiYIcA/sZfSTH2ToQ79M9R+/TfVbd+PffwT/5Fn03KKZrqUDoqSZiSOCm0KOj+I++zDpFz6b7JtfReZlz4v3SP/A91H9+m3I8ZH6PMwIR6LnFnH27Kgfr3Xpzf/zWdyrrzDpxlsJnOfh7NgWD6x0U9cabpDrmmwjUpJ9441k33gj/mMnqH7jdmp3PID/yFGC01Oo+UV0qWKma2kV2idZuTXggOMiRwq4z7yG1AufQ/5tb6T0+Zsofu7LiPHR1XZZK9HzOZwndegKxOhQ82MKga7WcA/u67qFixBk84V4hK2pMApB4PuJ4NYLb89lc3mCIDAvxrbn7M59sLLrpLViaGSUZ93wAhbmZpibnmJxYZ5KuUTgeUa4ognzCDTaTNcPRUFKiZtOk8nmGBoeYWh0jMLwCLl8flUraXxyOyNj401bN0IIUr5HOp3p0jKm/OlMhvzQUDy7YNUxPY+RUTMLaWL7Dia272BhboaZqXMsLy5QKZXwfc/E84XXFq21EF2nkALXTZMfylEYGmZkfILxbdvjuEBjH1G3rTl5l9fR4up0n/o0KyfUonRjKiClUGem8Y+fQp2dRi0uo5dL6ErNdDlTLnJiFOeK/bhXHcS9bHfjsQMVO+mpdVjlWkpEGLYiaN71SPoV8PzOFygEpNw1+wRWvZECFY+qJgmmZlCzC6iz51Gz8+hi2QT1FsuoYtlc1kgBMTaCs3cH7jMuwzm4Lz7O/Ds/SvGP/hLZSuAcBzU3y/AH3sHI7/66EdEo9OQi2CbZ5ej2kauPWPbmg4m/p03u//U4Z6cWR7VSplIuUatW8T3PtJKUQjoS103hplI4bop0Ok0qnWmY5bDyHMkyGiFpcx3QMHLfTdxZp7uStM3KY1bKZcql5VDQfbRW4WwGieM4OK5LOpMlm8uRzmSbXl+/Wm1JLqgFl6TB6SgEOJHQharsOjj7duLs29nV8WIxEBjBCsVNCGHSgnfx/XZGih9iKbs6XrfHbXae6HtAfSQ1so0w8W7Ojm2mlXj1oa6PDZiXQyZtWsXd4HTuwq6HbZKisRb7XYiDOa4wgg5JFXs/Z4OrpkHANUJIMtlcPVljl+cOfyP5Zl7p9xNSdmzXdnMdazle8pjJF5UQgmwuR3YNGT8iGyWv8ULudSv6JnARq4Uukc03/gHQzV0rSSe2I5s+QN2Wo53BenVi9tqiWLV/U9tAbJdm9on+TtoobCXrcoXVxiQ+fuwWSXfORLEetrnY9l55zo5L013AOZvvt/JaE/GeCb9qqy5YMkdaK3t2U66uW3BrrFfJ3xu+G/2evEazc7OjNRx3Pei7wEU0LXBC/FoZNfLrJQ0iWvzeUxlWfNaLYS/0ZrSzTUQrG618k8c2nVkwvzd1IyZ8eLls/Gu71lbLcnbgYh6z2+9dinMmMa4SCTIhTKKzkK7c3sv1dNOCu5BjJhs0QojGx0/U91mP1lk3rJvAtaOjUS+BITYa7WzU8BYNZ04E52bMCHWrN7HWgDQ59YAoRvFSPHRbjXYv6EGxf6c6famus48xBZaLTihmwekpgqfOQqZNOncNCAe5bTTc0P9YM4tlo2EFbh1IBnNGaXCSvooLHbiOW17haGnt23ejzs/GGZBbfAnhOsjdYQhN5MuzWAaYS9JFHXQafA6RjyLMkKKN8wUtVvsZOw2KNPwdpp8CKH7my5BIV9PUDxQEiOECzq7J6IT9uFSLZUNjBW4diB2unk9w+hzOnh1NRy/j0dM4Bil00jZoT2I4KhpdFSKOMVz4zU9Q+87dyLERI2KtBjA8H7lvF3L39vo2i2XAsQLXZ7TWZtqXI/AffJzzr/w5nMv34F59kNSzr8K9+hDuof3IvTtMynYh4gSiayF46iyLH/k0pS/+H+TocJxjrynCTDdzDx9AFnLhNBkrcJbBxwpcnzFdTeMb8+5/FDU3h67U8O49QvlLfwfCReSyyO3jOLu34+zfhbNnB3LvTtz9uxCjw2YthkwaMmkzBS5Q6OUS6swU/okz1O64n9q37kLNzCPHhuOVxtrFn6ED0i95rtmoVH3amcUywFiB6zNJX1ntrocAichnEdk0YWwGKIWamkWdnqJ2231AQDhlIw7gFY4DKZNNBaXQVS+c8B4ADmIoH8/H7RhLFQSIfIHMq34g3LjGjCsWyybFCtx6EE6H8u57FBzXpBgPGruQIu1CJhXOlQ23r4wIj/6WMvThhftGfrtwIe22UeqOg1paJvPy55O+/hojwPLSBV5aLBcTK3B9JBo0EFISnJ0meOKk6Wo2W+1KEwpYl2u9qmjuXr3b2ZVAheEkhXe/zfwdJi2wWLYCNg6u34StLv/IcdR0h9i0kAue19q0GNokHp2bI/uGV5B70yvN4ILTeW0Ii2VQsALXR+J5tID3vYfRfq2nEdILIZ7ClU6h5hZxD13O2Gc/0lhGi2WLYAWujyQnv3v3PwrSbTqJfj0RrgNSomZmcK+8nIm//2Oc3duNvy7MD2ZFzrJVsALXZ4TjoCtVqrfcjlZVdKlcjztzHDMh3gkX+k3MdGhF2+ldUQxduLaDVgo1t4haKpJ/+1vYfvuXSF190IhblCzUYtlC2EGGdUDXPPJveyPe/Y8RPHmG4Ow0emEJ7XvEacelNKEgrhOuxZDI8SaAMBNxJH8C6iOrYdwbnm/Wnwg8QCB3TJL9oZdQeNdPkLnxhaYsK8TNtt4sW4m+pSy3GFZ2AXW1RnBmiuDEGfwjxwhOnjV/n51Gzcyj5hbR84voag38IFyvIlqLoT5yapDgpBAZs3iPmBjFPbiX1PddQ+oF15F58fU4+02qdx0EJp6ui7TVFsugYgWujzQkomyx9kLD/n6AXlw261PML6HmFlDzSyY7b9Q601EaX21mQGwbw9m9HTFSQI6PIidGG48ZrX4l69mQrbBZtipW4PpM00y8yXTtUJ+t0IcR1lhMIV6jtJtU1RbLVsAK3MVAmxUBmqZpb7YOQ7JbWm/AJXxzjX66JGazFTWLBazAWSyWAcaGiVgsloHFCpzFYhlYrMBZLJaBxQqcxWIZWKzAWSyWgcUKnMViGViswFksloHFCpzFYhlYrMBZLJaBxQqcxWIZWKzAWSyWgcUKnMViGViswFksloHFCpzFYhlYrMBZLJaBxQqcxWIZWKzAWSyWgcUKnMViGViswFksloHFCpzFYhlYrMBZLJaBxQqcxWIZWKzAWSyWgcUKnMViGViswFksloHFCpzFYhlYrMBZLJaB5f8D+OsXmDB/N9oAAAAASUVORK5CYII=">
+
+        <div class="cb_special">
+            <div><strong>Berufe an/abwählen </strong>(für diese Funktion Datei downloaden und lokal ausführen)</div>
+            <input type="checkbox" checked="true" value="hide" name="ict" id="ict" onchange="hide_show_table(this.id);" /><label for="ict">ICT-Fachmann/-frau EFZ</label>
+            <input type="checkbox" checked="true" value="hide" name="info" id="info" onchange="hide_show_table(this.id);" /><label for="info">Informatiker/in EFZ</label>
+            <input type="checkbox" checked="true" value="hide" name="media" id="media" onchange="hide_show_table(this.id);" /><label for="media">Mediamatiker/in EFZ</label>
+            <input type="checkbox" checked="true" value="hide" name="imd" id="imd" onchange="hide_show_table(this.id);" /><label for="imd">Interactive Media Designer/in EFZ</label>
+            <input type="checkbox" checked="true" value="hide" name="ent" id="ent" onchange="hide_show_table(this.id);" /><label for="ent">Entwickler/in digitales Business EFZ</label>
+        </div>
+
+
+        <table class="t_special t_special-horizontal t_special-highlight">
+
+            <thead>
+                <tr>
+                    <th></th>
+                    <th id="ict_head">ICT-Fachmann/-frau EFZ</th>
+                    <th id="info_head">Informatiker/in EFZ</th>
+                    <th id="media_head">Mediamatiker/in EFZ</th>
+                    <th id="imd_head">Interactive Media Designer/in EFZ</th>
+                    <th id="ent_head">Entwickler/in digitales Business EFZ</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Tätigkeiten</th>
+                    <th class="ict_col">installieren, vernetzen, erklären, anschliessen, beraten, programmieren</th>
+                    <th class="info_col" style="">planen, entwickeln, installieren, testen, warten, instruieren</th>
+                    <th class="media_col" style="">kommunizieren, gestalten, organisieren, planen, dokumentieren</th>
+                    <th class="imd_col" style="">konzipieren, gestalten, präsentieren, entwickeln, organisieren, beraten</th>
+                    <th class="ent_col" style="">strukturieren, entwickeln, analysieren, auswerten, visualisieren, kommunizieren</th>
+                </tr>
+                <tr>
+                    <th>Weitere Infos</th>
+                    <td class="ict_col">
+                        <a target="_blank" href="https://www.ict-berufsbildung.ch/grundbildung/ict-lehren/ict-fachmann-frau-efz">
+                            <img
+                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAA7AAAAOwBeShxvQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAALiSURBVFiFtdfPa5VHFMbxj5p4veAiG1daNWr1uhGMLg2li1IV3LksmtZFFWl1oVT9D6yJi5oq3RURV+JCBEWL7tQaaKVoRUFpaYO4MBZq8QdYXJx5vRN5c/Pe680DIe87M+/9npk558wZuq8GjuI2nqa/33EMa2aA91Y9CfwAX6E/6/sAO3EPJ1DrNryOC/gR81qM68UornbTiDouYaQENoD1JbBRsRIzBh/COG7iGh5hd9Y/F/e9p0/UcbkEfgC/YFXWtjQZkxuxC991G/4NxtBX8k2/WIliOxaL6GhbtQ7gha5jXXqehYlODPgBxzuAE9uwNj3PxpN24ZuFU/V0AG/gbxEdsAy/tWvAT/goe/+6IrxPOOb2rG0vhquCNyX4X2LvYLlwqiXCy1vBx8RKFarjocmRUqqa2PMbOIRzWd9+HBZL+Sc+qwiHkzhCOMJUquM8XmMDfsW/Wf8CsSIPMYh9Ji9xn4iWM8nQQiPp24Mt2KVxvlZsQ6EdaSaFFuIPfGjqmY+IzFlvF07M8JnmYTNfrMBgNuZLnJ0JeBFqZxOk0GAyYn56n4f/krHvwi+/L7wPK4XDLcz6T+KL7P2KZrKpDO/BxWnghYZwSxQZRPHxbdZ/WoRtrzhyW8LnpP/D+F+cUDl8Kz7BP1n7LbzAKbzEanH0Xkv9n4vIOSzyxLY0fko1RBmVVzJV0usK4ROvRC4gktS4mPWnraC5joplLDQk0maV9Dr2zrcfmxyqlXRbM5X2igOjURGeh1ovfsbGdg14opkRB9KPtAsnjuiO6rwJzQNmvaYztQMvQq2jSvcuFqXnmvDc/pJx08FbxnkrHROXhkK7ReWyNGtrCMc80G04URrf06xUCiMeiRrupgitbSXwaXN7VZ0Ql4VcNeETAyaXYF2HF7Cr+F5cGqZSXeT+C92CF+H3UsTvbJEXdolSi4iQ5diDO3iMLXjeDQPKtEbcWO6Iq/WEqF6HVajh2tUbMmqyZ7IRiuYAAAAASUVORK5CYII=">
+
+                        </a>
+                    </td>
+                    <td class="info_col" style="">
+                        <a target="_blank" href="https://www.ict-berufsbildung.ch/grundbildung/ict-lehren/informatiker-in-efz">
+                            <img
+                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAA7AAAAOwBeShxvQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAALiSURBVFiFtdfPa5VHFMbxj5p4veAiG1daNWr1uhGMLg2li1IV3LksmtZFFWl1oVT9D6yJi5oq3RURV+JCBEWL7tQaaKVoRUFpaYO4MBZq8QdYXJx5vRN5c/Pe680DIe87M+/9npk558wZuq8GjuI2nqa/33EMa2aA91Y9CfwAX6E/6/sAO3EPJ1DrNryOC/gR81qM68UornbTiDouYaQENoD1JbBRsRIzBh/COG7iGh5hd9Y/F/e9p0/UcbkEfgC/YFXWtjQZkxuxC991G/4NxtBX8k2/WIliOxaL6GhbtQ7gha5jXXqehYlODPgBxzuAE9uwNj3PxpN24ZuFU/V0AG/gbxEdsAy/tWvAT/goe/+6IrxPOOb2rG0vhquCNyX4X2LvYLlwqiXCy1vBx8RKFarjocmRUqqa2PMbOIRzWd9+HBZL+Sc+qwiHkzhCOMJUquM8XmMDfsW/Wf8CsSIPMYh9Ji9xn4iWM8nQQiPp24Mt2KVxvlZsQ6EdaSaFFuIPfGjqmY+IzFlvF07M8JnmYTNfrMBgNuZLnJ0JeBFqZxOk0GAyYn56n4f/krHvwi+/L7wPK4XDLcz6T+KL7P2KZrKpDO/BxWnghYZwSxQZRPHxbdZ/WoRtrzhyW8LnpP/D+F+cUDl8Kz7BP1n7LbzAKbzEanH0Xkv9n4vIOSzyxLY0fko1RBmVVzJV0usK4ROvRC4gktS4mPWnraC5joplLDQk0maV9Dr2zrcfmxyqlXRbM5X2igOjURGeh1ovfsbGdg14opkRB9KPtAsnjuiO6rwJzQNmvaYztQMvQq2jSvcuFqXnmvDc/pJx08FbxnkrHROXhkK7ReWyNGtrCMc80G04URrf06xUCiMeiRrupgitbSXwaXN7VZ0Ql4VcNeETAyaXYF2HF7Cr+F5cGqZSXeT+C92CF+H3UsTvbJEXdolSi4iQ5diDO3iMLXjeDQPKtEbcWO6Iq/WEqF6HVajh2tUbMmqyZ7IRiuYAAAAASUVORK5CYII=">
+                        </a>
+                    </td>
+                    <td class="media_col" style="">
+                        <a target="_blank" href="https://www.ict-berufsbildung.ch/grundbildung/ict-lehren/mediamatiker-in-efz">
+                            <img
+                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAA7AAAAOwBeShxvQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAALiSURBVFiFtdfPa5VHFMbxj5p4veAiG1daNWr1uhGMLg2li1IV3LksmtZFFWl1oVT9D6yJi5oq3RURV+JCBEWL7tQaaKVoRUFpaYO4MBZq8QdYXJx5vRN5c/Pe680DIe87M+/9npk558wZuq8GjuI2nqa/33EMa2aA91Y9CfwAX6E/6/sAO3EPJ1DrNryOC/gR81qM68UornbTiDouYaQENoD1JbBRsRIzBh/COG7iGh5hd9Y/F/e9p0/UcbkEfgC/YFXWtjQZkxuxC991G/4NxtBX8k2/WIliOxaL6GhbtQ7gha5jXXqehYlODPgBxzuAE9uwNj3PxpN24ZuFU/V0AG/gbxEdsAy/tWvAT/goe/+6IrxPOOb2rG0vhquCNyX4X2LvYLlwqiXCy1vBx8RKFarjocmRUqqa2PMbOIRzWd9+HBZL+Sc+qwiHkzhCOMJUquM8XmMDfsW/Wf8CsSIPMYh9Ji9xn4iWM8nQQiPp24Mt2KVxvlZsQ6EdaSaFFuIPfGjqmY+IzFlvF07M8JnmYTNfrMBgNuZLnJ0JeBFqZxOk0GAyYn56n4f/krHvwi+/L7wPK4XDLcz6T+KL7P2KZrKpDO/BxWnghYZwSxQZRPHxbdZ/WoRtrzhyW8LnpP/D+F+cUDl8Kz7BP1n7LbzAKbzEanH0Xkv9n4vIOSzyxLY0fko1RBmVVzJV0usK4ROvRC4gktS4mPWnraC5joplLDQk0maV9Dr2zrcfmxyqlXRbM5X2igOjURGeh1ovfsbGdg14opkRB9KPtAsnjuiO6rwJzQNmvaYztQMvQq2jSvcuFqXnmvDc/pJx08FbxnkrHROXhkK7ReWyNGtrCMc80G04URrf06xUCiMeiRrupgitbSXwaXN7VZ0Ql4VcNeETAyaXYF2HF7Cr+F5cGqZSXeT+C92CF+H3UsTvbJEXdolSi4iQ5diDO3iMLXjeDQPKtEbcWO6Iq/WEqF6HVajh2tUbMmqyZ7IRiuYAAAAASUVORK5CYII=">
+                        </a>
+                    </td>
+                    <td class="imd_col" style="">
+                        <a target="_blank" href="https://viscom.ch/de/interactive-media-designer-efz">
+                            <img
+                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAA7AAAAOwBeShxvQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAALiSURBVFiFtdfPa5VHFMbxj5p4veAiG1daNWr1uhGMLg2li1IV3LksmtZFFWl1oVT9D6yJi5oq3RURV+JCBEWL7tQaaKVoRUFpaYO4MBZq8QdYXJx5vRN5c/Pe680DIe87M+/9npk558wZuq8GjuI2nqa/33EMa2aA91Y9CfwAX6E/6/sAO3EPJ1DrNryOC/gR81qM68UornbTiDouYaQENoD1JbBRsRIzBh/COG7iGh5hd9Y/F/e9p0/UcbkEfgC/YFXWtjQZkxuxC991G/4NxtBX8k2/WIliOxaL6GhbtQ7gha5jXXqehYlODPgBxzuAE9uwNj3PxpN24ZuFU/V0AG/gbxEdsAy/tWvAT/goe/+6IrxPOOb2rG0vhquCNyX4X2LvYLlwqiXCy1vBx8RKFarjocmRUqqa2PMbOIRzWd9+HBZL+Sc+qwiHkzhCOMJUquM8XmMDfsW/Wf8CsSIPMYh9Ji9xn4iWM8nQQiPp24Mt2KVxvlZsQ6EdaSaFFuIPfGjqmY+IzFlvF07M8JnmYTNfrMBgNuZLnJ0JeBFqZxOk0GAyYn56n4f/krHvwi+/L7wPK4XDLcz6T+KL7P2KZrKpDO/BxWnghYZwSxQZRPHxbdZ/WoRtrzhyW8LnpP/D+F+cUDl8Kz7BP1n7LbzAKbzEanH0Xkv9n4vIOSzyxLY0fko1RBmVVzJV0usK4ROvRC4gktS4mPWnraC5joplLDQk0maV9Dr2zrcfmxyqlXRbM5X2igOjURGeh1ovfsbGdg14opkRB9KPtAsnjuiO6rwJzQNmvaYztQMvQq2jSvcuFqXnmvDc/pJx08FbxnkrHROXhkK7ReWyNGtrCMc80G04URrf06xUCiMeiRrupgitbSXwaXN7VZ0Ql4VcNeETAyaXYF2HF7Cr+F5cGqZSXeT+C92CF+H3UsTvbJEXdolSi4iQ5diDO3iMLXjeDQPKtEbcWO6Iq/WEqF6HVajh2tUbMmqyZ7IRiuYAAAAASUVORK5CYII=">
+                        </a>
+                    </td>
+                    <td class="ent_col" style="">
+                        <a target="_blank" href="https://www.ict-berufsbildung.ch/grundbildung/ict-lehren/entwickler-in-digitales-business-efz">
+                            <img
+                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAA7AAAAOwBeShxvQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAALiSURBVFiFtdfPa5VHFMbxj5p4veAiG1daNWr1uhGMLg2li1IV3LksmtZFFWl1oVT9D6yJi5oq3RURV+JCBEWL7tQaaKVoRUFpaYO4MBZq8QdYXJx5vRN5c/Pe680DIe87M+/9npk558wZuq8GjuI2nqa/33EMa2aA91Y9CfwAX6E/6/sAO3EPJ1DrNryOC/gR81qM68UornbTiDouYaQENoD1JbBRsRIzBh/COG7iGh5hd9Y/F/e9p0/UcbkEfgC/YFXWtjQZkxuxC991G/4NxtBX8k2/WIliOxaL6GhbtQ7gha5jXXqehYlODPgBxzuAE9uwNj3PxpN24ZuFU/V0AG/gbxEdsAy/tWvAT/goe/+6IrxPOOb2rG0vhquCNyX4X2LvYLlwqiXCy1vBx8RKFarjocmRUqqa2PMbOIRzWd9+HBZL+Sc+qwiHkzhCOMJUquM8XmMDfsW/Wf8CsSIPMYh9Ji9xn4iWM8nQQiPp24Mt2KVxvlZsQ6EdaSaFFuIPfGjqmY+IzFlvF07M8JnmYTNfrMBgNuZLnJ0JeBFqZxOk0GAyYn56n4f/krHvwi+/L7wPK4XDLcz6T+KL7P2KZrKpDO/BxWnghYZwSxQZRPHxbdZ/WoRtrzhyW8LnpP/D+F+cUDl8Kz7BP1n7LbzAKbzEanH0Xkv9n4vIOSzyxLY0fko1RBmVVzJV0usK4ROvRC4gktS4mPWnraC5joplLDQk0maV9Dr2zrcfmxyqlXRbM5X2igOjURGeh1ovfsbGdg14opkRB9KPtAsnjuiO6rwJzQNmvaYztQMvQq2jSvcuFqXnmvDc/pJx08FbxnkrHROXhkK7ReWyNGtrCMc80G04URrf06xUCiMeiRrupgitbSXwaXN7VZ0Ql4VcNeETAyaXYF2HF7Cr+F5cGqZSXeT+C92CF+H3UsTvbJEXdolSi4iQ5diDO3iMLXjeDQPKtEbcWO6Iq/WEqF6HVajh2tUbMmqyZ7IRiuYAAAAASUVORK5CYII=">
+                        </a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <th>Zutritt</th>
+                    <td class="ict_col">Abgeschlossene Volksschule, mittlere oder obere Stufe vorteilhaft. Gute Leistungen in Mathematik und Naturwissenschaften.</td>
+                    <td class="info_col" style="">Abgeschlossene Volksschule, oberste Stufe. Gute Leistungen in Mathematik und Englisch.</td>
+                    <td class="media_col" style="">Abgeschlossene Volksschulstufe, obere Stufe vorteilhaft, mit guten Leistungen in Mathematik und Sprachen.</td>
+                    <td class="imd_col" style="">Abgeschlossene Volksschule. Bestandener Eignungstest. Gute Leistungen in Englisch sind von Vorteil.</td>
+                    <td class="ent_col" style="">Abgeschlossene Volksschule.</td>
+                </tr>
+                <tr>
+                    <th>Ausbildung</th>
+                    <td class="ict_col">3 Jahre berufliche Grundbildung in einem IT-, Dienstleistungs-, Industrie- und Gewerbebetrieb oder in einer öffentlichen Verwaltung.</td>
+                    <td class="info_col" style="">4 Jahre berufliche Grundbildung. Ab dem 2. Lehrjahr gibt es Spezialisierungen je nach Fachrichtung.
+
+                        Mit Matura ist eine verkürzte 2-jährige Grundbildung (way up) möglich.</td>
+                    <td class="media_col" style="">4 Jahre berufliche Grundbildung. Mit gymnasialer Matura ist eine verkürzte 2-jährige Grundbildung (way-up) möglich.</td>
+                    <td class="imd_col" style="">4 Jahre berufliche Grundbildung. Berufsfachschule 2 Tage pro Woche im ersten und zweiten, 1 Tag pro Woche im dritten und vierten
+                        Lehrjahr.
+                    </td>
+                    <td class="ent_col" style="">4 Jahre berufliche Grundbildung. Der Beruf ist brandneu, innovativ und zukunftsorientiert.</td>
+                </tr>
+                <tr>
+                    <th>Sonnenseite</th>
+                    <td class="ict_col">In diesem Beruf wird man täglich vor neue Aufgaben gestellt, da ist Langeweile ausgeschlossen. Auch haben ICT-Fachleute Kundenkontakt.
+                        Wer
+                        kommunikationsfreudig ist, Programme und Funktionen gut
+                        erklären kann, kommt in diesem Beruf voll auf seine Kosten.</td>
+                    <td class="info_col" style="">Informatikerinnen und Informatiker lösen immer wieder neue Aufgaben, ihr Können ist ständig gefordert. Sie sind in einem breiten Feld
+                        tätig
+                        und meist nur begrenzt an einen festen Arbeitsplatz
+                        gebunden.
+                    </td>
+                    <td class="media_col" style="">Mediamatiker und Mediamatikerinnen verfügen über breite Kenntnisse der neuen Medien. Sie arbeiten an interessanten,
+                        zukunftsorientierten
+                        Projekten und setzen sich mit neuen Geräten, Programmen und
+                        Möglichkeiten am Computer auseinander. Sie finden in jeder Art von Unternehmen Tätigkeiten.
+                    </td>
+                    <td class="imd_col" style="">Interactive Media Designer bestimmen die Inhalte, das Design, die Funktionen und die Interaktionen digitaler Kommunikationsmittel und
+                        setzen
+                        diese mittels handwerklicher Techniken und entsprechender
+                        Hard- und Software gemäss Konzept um. Das ist eine äusserst kreative Tätigkeit.</td>
+                    <td class="ent_col" style="">Entwickler und Entwicklerinnen digitales Business konzentrieren sich darauf, durch geeignete Daten Klarheit zu schaffen, zu entwirren,
+                        Opportunitäten und Lösungen aufzuzeigen. Sie nehmen eine wichtige
+                        Rolle im Rahmen der fortschreitenden Digitalisierung ein. Die Geschäftswelt dankt es ihnen.</td>
+                </tr>
+                <tr>
+                    <th>Schattenseite</th>
+                    <td class="ict_col">Nicht jedes Informatik-Problem ist einfach zu lösen und nicht alle Kunden und Anwenderinnen sind unkompliziert. Geduld ist gefragt, wenn
+                        komplexe Vorgänge begreifbar gemacht werden müssen.</td>
+                    <td class="info_col" style="">Der Beruf fordert ständige Weiterbildung. Bei Projekten ist der Zeitdruck hoch. Die Anforderungen an Auffassungsgabe, Ausdauer und
+                        Konzentrationsfähigkeit sind überdurchschnittlich.</td>
+                    <td class="media_col" style="">Je nach Tätigkeitsbereich kann es manchmal hektisch sein: Eine Videokonferenz soll kurzfristig organisiert werden, eine wichtige
+                        Kundenpräsentation in letzter Minute erstellt oder geändert werden,
+                        diverse Aktualisierungsarbeiten stehen gleichzeitig an und vieles mehr.</td>
+                    <td class="imd_col" style="">Bei der Ausübung ihrer Tätigkeit müssen Interactive Media Designer viel sitzend am Bildschirm arbeiten. Die Tätigkeit ist deshalb nicht
+                        geeignet für Personen mit ausgeprägtem Bewegungsdrang.</td>
+                    <td class="ent_col" style="">Die technologische Entwicklung schreitet rasant voran, während die erforderliche Umgestaltung der Prozesse deutlich mehr Zeit und
+                        manchmal
+                        auch Veränderungswillen bedarf.</td>
+                </tr>
+                <tr>
+                    <th>Gut zu wissen</th>
+                    <td class="ict_col">ICT-Fachleute sind gefragte Berufsleute, weil die Digitalisierung immer mehr Arbeits- und Lebensbereiche durchdringt. Der Beruf ist
+                        jedoch
+                        nur etwas für lernfreudige Menschen, denn die ICT-Branche ist
+                        geprägt durch ständige Veränderung, Weiterentwicklung und Innovation. Es ist deshalb zwingend notwendig, sich laufend weiterzubilden, um jederzeit auf dem aktuellsten Stand zu
+                        sein.</td>
+                    <td class="info_col" style="">Informatiker und Informatikerinnen arbeiten mit modernen Technologien und entwickeln Lösungen, die sich durch sparsamen Mitteleinsatz
+                        und
+                        hohe Systematik auszeichnen. Dabei geht es in der Regel um
+                        klar strukturierte Problemstellungen, für die es eine Lösung zu finden gilt.</td>
+                    <td class="media_col" style="">Mediamatiker/in ist ein kreativer Beruf am Computer, der Kreativität sind keine Grenzen gesetzt. Trotzdem gilt es meistens, die
+                        Produkte
+                        gemäss Vorgaben umzusetzen. Die Tätigkeit erfordert Kenntnisse
+                        im technischen und im betriebswirtschaftlichen Bereich.</td>
+                    <td class="imd_col" style="">Interactive Media Design ist ein neuer und äusserst attraktiver Beruf, der stetem Wandel unterworfen ist. Was heute noch hip und modern
+                        ist,
+                        ist morgen bereits von gestern und veraltet. Entsprechend
+                        flexibel müssen die Berufsleute sein. Weiterbildung ist hier ein Muss, denn in Zukunft werden sie auch für digitale Medien zuständig sein, die heute noch gar nicht existieren.
+                    </td>
+                    <td class="ent_col" style="">Entwickler und Entwicklerinnen digitales Business arbeiten meist in mittleren und grossen Unternehmen, Banken,
+                        Versicherungsgesellschaften,
+                        Verkehrsbetriebe, Industrieunternehmen, Spitäler,
+                        Bildungsinstitutionen, Telekommunikationsunternehmen, Consulting, etc.</td>
+                </tr>
+                <tr>
+                    <th>Am Arbeitsmarkt oft verlangter Eignungstest</th>
+                    <td class="ict_col">
+                        <a target="_blank" href="https://www.gateway.one/files/pdf/pdf_Musterzertifikate/de/de_musterzertifikat_ict.pdf">
+                            <img height="20"
+                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAA7AAAAOwBeShxvQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAALiSURBVFiFtdfPa5VHFMbxj5p4veAiG1daNWr1uhGMLg2li1IV3LksmtZFFWl1oVT9D6yJi5oq3RURV+JCBEWL7tQaaKVoRUFpaYO4MBZq8QdYXJx5vRN5c/Pe680DIe87M+/9npk558wZuq8GjuI2nqa/33EMa2aA91Y9CfwAX6E/6/sAO3EPJ1DrNryOC/gR81qM68UornbTiDouYaQENoD1JbBRsRIzBh/COG7iGh5hd9Y/F/e9p0/UcbkEfgC/YFXWtjQZkxuxC991G/4NxtBX8k2/WIliOxaL6GhbtQ7gha5jXXqehYlODPgBxzuAE9uwNj3PxpN24ZuFU/V0AG/gbxEdsAy/tWvAT/goe/+6IrxPOOb2rG0vhquCNyX4X2LvYLlwqiXCy1vBx8RKFarjocmRUqqa2PMbOIRzWd9+HBZL+Sc+qwiHkzhCOMJUquM8XmMDfsW/Wf8CsSIPMYh9Ji9xn4iWM8nQQiPp24Mt2KVxvlZsQ6EdaSaFFuIPfGjqmY+IzFlvF07M8JnmYTNfrMBgNuZLnJ0JeBFqZxOk0GAyYn56n4f/krHvwi+/L7wPK4XDLcz6T+KL7P2KZrKpDO/BxWnghYZwSxQZRPHxbdZ/WoRtrzhyW8LnpP/D+F+cUDl8Kz7BP1n7LbzAKbzEanH0Xkv9n4vIOSzyxLY0fko1RBmVVzJV0usK4ROvRC4gktS4mPWnraC5joplLDQk0maV9Dr2zrcfmxyqlXRbM5X2igOjURGeh1ovfsbGdg14opkRB9KPtAsnjuiO6rwJzQNmvaYztQMvQq2jSvcuFqXnmvDc/pJx08FbxnkrHROXhkK7ReWyNGtrCMc80G04URrf06xUCiMeiRrupgitbSXwaXN7VZ0Ql4VcNeETAyaXYF2HF7Cr+F5cGqZSXeT+C92CF+H3UsTvbJEXdolSi4iQ5diDO3iMLXjeDQPKtEbcWO6Iq/WEqF6HVajh2tUbMmqyZ7IRiuYAAAAASUVORK5CYII=">
+                            Multicheck ICT
+                        </a>
+                    </td>
+                    <td class="info_col" style="">
+                        <a target="_blank" href="https://www.gateway.one/files/pdf/pdf_Musterzertifikate/de/de_musterzertifikat_ict.pdf">
+                            <img height="20"
+                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAA7AAAAOwBeShxvQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAALiSURBVFiFtdfPa5VHFMbxj5p4veAiG1daNWr1uhGMLg2li1IV3LksmtZFFWl1oVT9D6yJi5oq3RURV+JCBEWL7tQaaKVoRUFpaYO4MBZq8QdYXJx5vRN5c/Pe680DIe87M+/9npk558wZuq8GjuI2nqa/33EMa2aA91Y9CfwAX6E/6/sAO3EPJ1DrNryOC/gR81qM68UornbTiDouYaQENoD1JbBRsRIzBh/COG7iGh5hd9Y/F/e9p0/UcbkEfgC/YFXWtjQZkxuxC991G/4NxtBX8k2/WIliOxaL6GhbtQ7gha5jXXqehYlODPgBxzuAE9uwNj3PxpN24ZuFU/V0AG/gbxEdsAy/tWvAT/goe/+6IrxPOOb2rG0vhquCNyX4X2LvYLlwqiXCy1vBx8RKFarjocmRUqqa2PMbOIRzWd9+HBZL+Sc+qwiHkzhCOMJUquM8XmMDfsW/Wf8CsSIPMYh9Ji9xn4iWM8nQQiPp24Mt2KVxvlZsQ6EdaSaFFuIPfGjqmY+IzFlvF07M8JnmYTNfrMBgNuZLnJ0JeBFqZxOk0GAyYn56n4f/krHvwi+/L7wPK4XDLcz6T+KL7P2KZrKpDO/BxWnghYZwSxQZRPHxbdZ/WoRtrzhyW8LnpP/D+F+cUDl8Kz7BP1n7LbzAKbzEanH0Xkv9n4vIOSzyxLY0fko1RBmVVzJV0usK4ROvRC4gktS4mPWnraC5joplLDQk0maV9Dr2zrcfmxyqlXRbM5X2igOjURGeh1ovfsbGdg14opkRB9KPtAsnjuiO6rwJzQNmvaYztQMvQq2jSvcuFqXnmvDc/pJx08FbxnkrHROXhkK7ReWyNGtrCMc80G04URrf06xUCiMeiRrupgitbSXwaXN7VZ0Ql4VcNeETAyaXYF2HF7Cr+F5cGqZSXeT+C92CF+H3UsTvbJEXdolSi4iQ5diDO3iMLXjeDQPKtEbcWO6Iq/WEqF6HVajh2tUbMmqyZ7IRiuYAAAAASUVORK5CYII=">
+                            Multicheck ICT
+                        </a>
+                    </td>
+                    <td class="media_col" style="">
+                        <a target="_blank" href="https://www.gateway.one/files/pdf/pdf_Musterzertifikate/de/de_musterzertifikat_media_design.pdf">
+                            <img height="20"
+                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAA7AAAAOwBeShxvQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAALiSURBVFiFtdfPa5VHFMbxj5p4veAiG1daNWr1uhGMLg2li1IV3LksmtZFFWl1oVT9D6yJi5oq3RURV+JCBEWL7tQaaKVoRUFpaYO4MBZq8QdYXJx5vRN5c/Pe680DIe87M+/9npk558wZuq8GjuI2nqa/33EMa2aA91Y9CfwAX6E/6/sAO3EPJ1DrNryOC/gR81qM68UornbTiDouYaQENoD1JbBRsRIzBh/COG7iGh5hd9Y/F/e9p0/UcbkEfgC/YFXWtjQZkxuxC991G/4NxtBX8k2/WIliOxaL6GhbtQ7gha5jXXqehYlODPgBxzuAE9uwNj3PxpN24ZuFU/V0AG/gbxEdsAy/tWvAT/goe/+6IrxPOOb2rG0vhquCNyX4X2LvYLlwqiXCy1vBx8RKFarjocmRUqqa2PMbOIRzWd9+HBZL+Sc+qwiHkzhCOMJUquM8XmMDfsW/Wf8CsSIPMYh9Ji9xn4iWM8nQQiPp24Mt2KVxvlZsQ6EdaSaFFuIPfGjqmY+IzFlvF07M8JnmYTNfrMBgNuZLnJ0JeBFqZxOk0GAyYn56n4f/krHvwi+/L7wPK4XDLcz6T+KL7P2KZrKpDO/BxWnghYZwSxQZRPHxbdZ/WoRtrzhyW8LnpP/D+F+cUDl8Kz7BP1n7LbzAKbzEanH0Xkv9n4vIOSzyxLY0fko1RBmVVzJV0usK4ROvRC4gktS4mPWnraC5joplLDQk0maV9Dr2zrcfmxyqlXRbM5X2igOjURGeh1ovfsbGdg14opkRB9KPtAsnjuiO6rwJzQNmvaYztQMvQq2jSvcuFqXnmvDc/pJx08FbxnkrHROXhkK7ReWyNGtrCMc80G04URrf06xUCiMeiRrupgitbSXwaXN7VZ0Ql4VcNeETAyaXYF2HF7Cr+F5cGqZSXeT+C92CF+H3UsTvbJEXdolSi4iQ5diDO3iMLXjeDQPKtEbcWO6Iq/WEqF6HVajh2tUbMmqyZ7IRiuYAAAAASUVORK5CYII=">
+                            Multicheck Media & Design
+                        </a>
+                    </td>
+                    <td class="imd_col" style="">
+                        <a target="_blank" href="https://www.gateway.one/files/pdf/pdf_Musterzertifikate/de/de_musterzertifikat_media_design.pdf">
+                            <img height="20"
+                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAA7AAAAOwBeShxvQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAALiSURBVFiFtdfPa5VHFMbxj5p4veAiG1daNWr1uhGMLg2li1IV3LksmtZFFWl1oVT9D6yJi5oq3RURV+JCBEWL7tQaaKVoRUFpaYO4MBZq8QdYXJx5vRN5c/Pe680DIe87M+/9npk558wZuq8GjuI2nqa/33EMa2aA91Y9CfwAX6E/6/sAO3EPJ1DrNryOC/gR81qM68UornbTiDouYaQENoD1JbBRsRIzBh/COG7iGh5hd9Y/F/e9p0/UcbkEfgC/YFXWtjQZkxuxC991G/4NxtBX8k2/WIliOxaL6GhbtQ7gha5jXXqehYlODPgBxzuAE9uwNj3PxpN24ZuFU/V0AG/gbxEdsAy/tWvAT/goe/+6IrxPOOb2rG0vhquCNyX4X2LvYLlwqiXCy1vBx8RKFarjocmRUqqa2PMbOIRzWd9+HBZL+Sc+qwiHkzhCOMJUquM8XmMDfsW/Wf8CsSIPMYh9Ji9xn4iWM8nQQiPp24Mt2KVxvlZsQ6EdaSaFFuIPfGjqmY+IzFlvF07M8JnmYTNfrMBgNuZLnJ0JeBFqZxOk0GAyYn56n4f/krHvwi+/L7wPK4XDLcz6T+KL7P2KZrKpDO/BxWnghYZwSxQZRPHxbdZ/WoRtrzhyW8LnpP/D+F+cUDl8Kz7BP1n7LbzAKbzEanH0Xkv9n4vIOSzyxLY0fko1RBmVVzJV0usK4ROvRC4gktS4mPWnraC5joplLDQk0maV9Dr2zrcfmxyqlXRbM5X2igOjURGeh1ovfsbGdg14opkRB9KPtAsnjuiO6rwJzQNmvaYztQMvQq2jSvcuFqXnmvDc/pJx08FbxnkrHROXhkK7ReWyNGtrCMc80G04URrf06xUCiMeiRrupgitbSXwaXN7VZ0Ql4VcNeETAyaXYF2HF7Cr+F5cGqZSXeT+C92CF+H3UsTvbJEXdolSi4iQ5diDO3iMLXjeDQPKtEbcWO6Iq/WEqF6HVajh2tUbMmqyZ7IRiuYAAAAASUVORK5CYII=">
+                            Multicheck Media & Design
+                        </a><br>oder<br>
+                        <a target="_blank" href="https://viscom.ch/de/interactive-media-designer-efz">
+                            <img height="20"
+                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAA7AAAAOwBeShxvQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAALiSURBVFiFtdfPa5VHFMbxj5p4veAiG1daNWr1uhGMLg2li1IV3LksmtZFFWl1oVT9D6yJi5oq3RURV+JCBEWL7tQaaKVoRUFpaYO4MBZq8QdYXJx5vRN5c/Pe680DIe87M+/9npk558wZuq8GjuI2nqa/33EMa2aA91Y9CfwAX6E/6/sAO3EPJ1DrNryOC/gR81qM68UornbTiDouYaQENoD1JbBRsRIzBh/COG7iGh5hd9Y/F/e9p0/UcbkEfgC/YFXWtjQZkxuxC991G/4NxtBX8k2/WIliOxaL6GhbtQ7gha5jXXqehYlODPgBxzuAE9uwNj3PxpN24ZuFU/V0AG/gbxEdsAy/tWvAT/goe/+6IrxPOOb2rG0vhquCNyX4X2LvYLlwqiXCy1vBx8RKFarjocmRUqqa2PMbOIRzWd9+HBZL+Sc+qwiHkzhCOMJUquM8XmMDfsW/Wf8CsSIPMYh9Ji9xn4iWM8nQQiPp24Mt2KVxvlZsQ6EdaSaFFuIPfGjqmY+IzFlvF07M8JnmYTNfrMBgNuZLnJ0JeBFqZxOk0GAyYn56n4f/krHvwi+/L7wPK4XDLcz6T+KL7P2KZrKpDO/BxWnghYZwSxQZRPHxbdZ/WoRtrzhyW8LnpP/D+F+cUDl8Kz7BP1n7LbzAKbzEanH0Xkv9n4vIOSzyxLY0fko1RBmVVzJV0usK4ROvRC4gktS4mPWnraC5joplLDQk0maV9Dr2zrcfmxyqlXRbM5X2igOjURGeh1ovfsbGdg14opkRB9KPtAsnjuiO6rwJzQNmvaYztQMvQq2jSvcuFqXnmvDc/pJx08FbxnkrHROXhkK7ReWyNGtrCMc80G04URrf06xUCiMeiRrupgitbSXwaXN7VZ0Ql4VcNeETAyaXYF2HF7Cr+F5cGqZSXeT+C92CF+H3UsTvbJEXdolSi4iQ5diDO3iMLXjeDQPKtEbcWO6Iq/WEqF6HVajh2tUbMmqyZ7IRiuYAAAAASUVORK5CYII=">
+
+                            viscom Eignungstest
+                        </a>
+                    </td>
+                    <td class="ent_col" style="">
+                        <a target="_blank" href="https://www.gateway.one/files/pdf/pdf_Musterzertifikate/de/de_musterzertifikat_kv.pdf">
+                            <img height="20"
+                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAA7AAAAOwBeShxvQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAALiSURBVFiFtdfPa5VHFMbxj5p4veAiG1daNWr1uhGMLg2li1IV3LksmtZFFWl1oVT9D6yJi5oq3RURV+JCBEWL7tQaaKVoRUFpaYO4MBZq8QdYXJx5vRN5c/Pe680DIe87M+/9npk558wZuq8GjuI2nqa/33EMa2aA91Y9CfwAX6E/6/sAO3EPJ1DrNryOC/gR81qM68UornbTiDouYaQENoD1JbBRsRIzBh/COG7iGh5hd9Y/F/e9p0/UcbkEfgC/YFXWtjQZkxuxC991G/4NxtBX8k2/WIliOxaL6GhbtQ7gha5jXXqehYlODPgBxzuAE9uwNj3PxpN24ZuFU/V0AG/gbxEdsAy/tWvAT/goe/+6IrxPOOb2rG0vhquCNyX4X2LvYLlwqiXCy1vBx8RKFarjocmRUqqa2PMbOIRzWd9+HBZL+Sc+qwiHkzhCOMJUquM8XmMDfsW/Wf8CsSIPMYh9Ji9xn4iWM8nQQiPp24Mt2KVxvlZsQ6EdaSaFFuIPfGjqmY+IzFlvF07M8JnmYTNfrMBgNuZLnJ0JeBFqZxOk0GAyYn56n4f/krHvwi+/L7wPK4XDLcz6T+KL7P2KZrKpDO/BxWnghYZwSxQZRPHxbdZ/WoRtrzhyW8LnpP/D+F+cUDl8Kz7BP1n7LbzAKbzEanH0Xkv9n4vIOSzyxLY0fko1RBmVVzJV0usK4ROvRC4gktS4mPWnraC5joplLDQk0maV9Dr2zrcfmxyqlXRbM5X2igOjURGeh1ovfsbGdg14opkRB9KPtAsnjuiO6rwJzQNmvaYztQMvQq2jSvcuFqXnmvDc/pJx08FbxnkrHROXhkK7ReWyNGtrCMc80G04URrf06xUCiMeiRrupgitbSXwaXN7VZ0Ql4VcNeETAyaXYF2HF7Cr+F5cGqZSXeT+C92CF+H3UsTvbJEXdolSi4iQ5diDO3iMLXjeDQPKtEbcWO6Iq/WEqF6HVajh2tUbMmqyZ7IRiuYAAAAASUVORK5CYII=">
+
+                            Multicheck Wirtschaft und Administration
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <th>TOP 10 Anforderungen</th>
+                    <td class="ict_col">
+                        <div class="col-md-6 bg-white gw-factsbox">
+
+                            <p class="gw-smalltext font-italic">
+                            </p>
+                            <div class="gw-profil-dimension">
+                                <label class="gw-profil-label">
+                                    Interesse an Informatik </label>
+                                <div class="progress">
+                                    <div class="progress-bar showspan stopgrowth" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 99%;">
+                                        <span>unverzichtbar</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gw-profil-dimension">
+                                <label class="gw-profil-label">
+                                    Kombinationsfähigkeit, rasche Auffassungsgabe </label>
+                                <div class="progress">
+                                    <div class="progress-bar showspan stopgrowth" role="progressbar" aria-valuenow="92.307692307692" aria-valuemin="0" aria-valuemax="100" style="width: 92%;">
+                                        <span>unverzichtbar</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gw-profil-dimension">
+                                <label class="gw-profil-label">
+                                    Konzentrationsfähigkeit, analytisches Denken </label>
+                                <div class="progress">
+                                    <div class="progress-bar showspan stopgrowth" role="progressbar" aria-valuenow="84.615384615385" aria-valuemin="0" aria-valuemax="100" style="width: 84%;">
+                                        <span>unverzichtbar</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gw-profil-dimension">
+                                <label class="gw-profil-label">
+                                    Kommunikationsfähigkeit </label>
+                                <div class="progress">
+                                    <div class="progress-bar showspan stopgrowth" role="progressbar" aria-valuenow="76.923076923077" aria-valuemin="0" aria-valuemax="100" style="width: 76%;">
+                                        <span>unverzichtbar</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gw-profil-dimension">
+                                <label class="gw-profil-label">
+                                    Interesse an Kundenkontakt </label>
+                                <div class="progress">
+                                    <div class="progress-bar showspan stopgrowth" role="progressbar" aria-valuenow="69.230769230769" aria-valuemin="0" aria-valuemax="100" style="width: 69%;">
+                                        <span>sehr
+                                            wichtig</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gw-profil-dimension">
+                                <label class="gw-profil-label">
+                                    technisches Verständnis </label>
+                                <div class="progress">
+                                    <div class="progress-bar showspan stopgrowth" role="progressbar" aria-valuenow="61.538461538462" aria-valuemin="0" aria-valuemax="100" style="width: 61%;">
+                                        <span>sehr
+                                            wichtig</span>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="gw-profil-dimension">
+                                <label class="gw-profil-label">
+                                    Lösungsorientierung </label>
+                                <div class="progress">
+                                    <div class="progress-bar showspan stopgrowth" role="progressbar" aria-valuenow="53.846153846154" aria-valuemin="0" aria-valuemax="100" style="width: 53%;">
+                                        <span>sehr
+                                            wichtig</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gw-profil-dimension">
+                                <label class="gw-profil-label">
+                                    Teamfähigkeit, Offenheit </label>
+                                <div class="progress">
+                                    <div class="progress-bar showspan stopgrowth" role="progressbar" aria-valuenow="46.153846153846" aria-valuemin="0" aria-valuemax="100" style="width: 46%;">
+                                        <span>wichtig</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gw-profil-dimension">
+                                <label class="gw-profil-label">
+                                    Zuverlässigkeit, exakte Arbeitsweise </label>
+                                <div class="progress">
+                                    <div class="progress-bar showspan stopgrowth" role="progressbar" aria-valuenow="38.461538461538" aria-valuemin="0" aria-valuemax="100" style="width: 38%;">
+                                        <span>wichtig</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gw-profil-dimension">
+                                <label class="gw-profil-label">
+                                    manuelles Geschick </label>
+                                <div class="progress">
+                                    <div class="progress-bar stopgrowth" role="progressbar" aria-valuenow="30.769230769231" aria-valuemin="0" aria-valuemax="100" style="width: 30%;">
+                                        <span>wichtig</span>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </td>
+                    <td class="info_col" style="">
+                        <div class="col-md-6 bg-white gw-factsbox">
+
+                            <p class="gw-smalltext font-italic">
+                            </p>
+                            <div class="gw-profil-dimension">
+                                <label class="gw-profil-label">
+                                    logisches Denken, Abstraktionsvermögen </label>
+                                <div class="progress">
+                                    <div class="progress-bar showspan stopgrowth" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 99%;">
+                                        <span>unverzichtbar</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gw-profil-dimension">
+                                <label class="gw-profil-label">
+                                    Kombinationsfähigkeit, rasche Auffassungsgabe </label>
+                                <div class="progress">
+                                    <div class="progress-bar showspan stopgrowth" role="progressbar" aria-valuenow="92.307692307692" aria-valuemin="0" aria-valuemax="100" style="width: 92%;">
+                                        <span>unverzichtbar</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gw-profil-dimension">
+                                <label class="gw-profil-label">
+                                    Ausdauer, Konzentrationsfähigkeit </label>
+                                <div class="progress">
+                                    <div class="progress-bar showspan stopgrowth" role="progressbar" aria-valuenow="84.615384615385" aria-valuemin="0" aria-valuemax="100" style="width: 84%;">
+                                        <span>unverzichtbar</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gw-profil-dimension">
+                                <label class="gw-profil-label">
+                                    Kommunikationsfähigkeit, Teamfähigkeit </label>
+                                <div class="progress">
+                                    <div class="progress-bar showspan stopgrowth" role="progressbar" aria-valuenow="76.923076923077" aria-valuemin="0" aria-valuemax="100" style="width: 76%;">
+                                        <span>unverzichtbar</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gw-profil-dimension">
+                                <label class="gw-profil-label">
+                                    Lernfreude, Offenheit </label>
+                                <div class="progress">
+                                    <div class="progress-bar showspan stopgrowth" role="progressbar" aria-valuenow="69.230769230769" aria-valuemin="0" aria-valuemax="100" style="width: 69%;">
+                                        <span>sehr
+                                            wichtig</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gw-profil-dimension">
+                                <label class="gw-profil-label">
+                                    Organisationstalent, Selbstständigkeit </label>
+                                <div class="progress">
+                                    <div class="progress-bar showspan stopgrowth" role="progressbar" aria-valuenow="61.538461538462" aria-valuemin="0" aria-valuemax="100" style="width: 61%;">
+                                        <span>sehr
+                                            wichtig</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gw-profil-dimension">
+                                <label class="gw-profil-label">
+                                    Ausdrucksfähigkeit, sicheres Auftreten </label>
+                                <div class="progress">
+                                    <div class="progress-bar showspan stopgrowth" role="progressbar" aria-valuenow="53.846153846154" aria-valuemin="0" aria-valuemax="100" style="width: 53%;">
+                                        <span>sehr
+                                            wichtig</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gw-profil-dimension">
+                                <label class="gw-profil-label">
+                                    exakte Arbeitsweise, technisches Verständnis </label>
+                                <div class="progress">
+                                    <div class="progress-bar showspan stopgrowth" role="progressbar" aria-valuenow="46.153846153846" aria-valuemin="0" aria-valuemax="100" style="width: 46%;">
+                                        <span>wichtig</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gw-profil-dimension">
+                                <label class="gw-profil-label">
+                                    Vorstellungsvermögen, manuelles Geschick </label>
+                                <div class="progress">
+                                    <div class="progress-bar showspan stopgrowth" role="progressbar" aria-valuenow="38.461538461538" aria-valuemin="0" aria-valuemax="100" style="width: 38%;">
+                                        <span>wichtig</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gw-profil-dimension">
+                                <label class="gw-profil-label">
+                                    Begeisterungsfähigkeit </label>
+                                <div class="progress">
+                                    <div class="progress-bar stopgrowth" role="progressbar" aria-valuenow="30.769230769231" aria-valuemin="0" aria-valuemax="100" style="width: 30%;">
+                                        <span>wichtig</span>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </td>
+                    <td class="media_col" style="">
+                        <div class="col-md-6 bg-white gw-factsbox">
+
+                            <p class="gw-smalltext font-italic">
+                            </p>
+                            <div class="gw-profil-dimension">
+                                <label class="gw-profil-label">
+                                    Interesse an Informatik, Interesse an Medien und Kommunikation </label>
+                                <div class="progress">
+                                    <div class="progress-bar showspan stopgrowth" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 99%;">
+                                        <span>unverzichtbar</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gw-profil-dimension">
+                                <label class="gw-profil-label">
+                                    logisches Denken, Abstraktionsvermögen </label>
+                                <div class="progress">
+                                    <div class="progress-bar showspan stopgrowth" role="progressbar" aria-valuenow="92.307692307692" aria-valuemin="0" aria-valuemax="100" style="width: 92%;">
+                                        <span>unverzichtbar</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gw-profil-dimension">
+                                <label class="gw-profil-label">
+                                    rasche Auffassungsgabe </label>
+                                <div class="progress">
+                                    <div class="progress-bar showspan stopgrowth" role="progressbar" aria-valuenow="84.615384615385" aria-valuemin="0" aria-valuemax="100" style="width: 84%;">
+                                        <span>unverzichtbar</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gw-profil-dimension">
+                                <label class="gw-profil-label">
+                                    Kommunikationsfähigkeit, Teamfähigkeit </label>
+                                <div class="progress">
+                                    <div class="progress-bar showspan stopgrowth" role="progressbar" aria-valuenow="76.923076923077" aria-valuemin="0" aria-valuemax="100" style="width: 76%;">
+                                        <span>unverzichtbar</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gw-profil-dimension">
+                                <label class="gw-profil-label">
+                                    Flexibilität, Offenheit </label>
+                                <div class="progress">
+                                    <div class="progress-bar showspan stopgrowth" role="progressbar" aria-valuenow="69.230769230769" aria-valuemin="0" aria-valuemax="100" style="width: 69%;">
+                                        <span>sehr
+                                            wichtig</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gw-profil-dimension">
+                                <label class="gw-profil-label">
+                                    Kreativität </label>
+                                <div class="progress">
+                                    <div class="progress-bar showspan stopgrowth" role="progressbar" aria-valuenow="61.538461538462" aria-valuemin="0" aria-valuemax="100" style="width: 61%;">
+                                        <span>sehr
+                                            wichtig</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gw-profil-dimension">
+                                <label class="gw-profil-label">
+                                    Selbstständigkeit </label>
+                                <div class="progress">
+                                    <div class="progress-bar showspan stopgrowth" role="progressbar" aria-valuenow="53.846153846154" aria-valuemin="0" aria-valuemax="100" style="width: 53%;">
+                                        <span>sehr
+                                            wichtig</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gw-profil-dimension">
+                                <label class="gw-profil-label">
+                                    speditive Arbeitsweise </label>
+                                <div class="progress">
+                                    <div class="progress-bar showspan stopgrowth" role="progressbar" aria-valuenow="46.153846153846" aria-valuemin="0" aria-valuemax="100" style="width: 46%;">
+                                        <span>wichtig</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gw-profil-dimension">
+                                <label class="gw-profil-label">
+                                    Experimentierfreude, Lernfreude </label>
+                                <div class="progress">
+                                    <div class="progress-bar showspan stopgrowth" role="progressbar" aria-valuenow="38.461538461538" aria-valuemin="0" aria-valuemax="100" style="width: 38%;">
+                                        <span>wichtig</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="gw-profil-dimension">
+                                <label class="gw-profil-label">
+                                    gute Umgangsformen </label>
+                                <div class="progress">
+                                    <div class="progress-bar stopgrowth" role="progressbar" aria-valuenow="30.769230769231" aria-valuemin="0" aria-valuemax="100" style="width: 30%;">
+                                        <span>wichtig</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </td>
+                    <td class="imd_col" style="">
+                        <div class="col-md-6 bg-white gw-factsbox">
+
+                            <p class="gw-smalltext font-italic">
+                            </p>
+                            <div class="gw-profil-dimension">
+                                <label class="gw-profil-label">
+                                    gestalterische Begabung </label>
+                                <div class="progress">
+                                    <div class="progress-bar showspan stopgrowth" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 99%;">
+                                        <span>unverzichtbar</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gw-profil-dimension">
+                                <label class="gw-profil-label">
+                                    Sinn für Farben, Sinn für Formen </label>
+                                <div class="progress">
+                                    <div class="progress-bar showspan stopgrowth" role="progressbar" aria-valuenow="92.307692307692" aria-valuemin="0" aria-valuemax="100" style="width: 92%;">
+                                        <span>unverzichtbar</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gw-profil-dimension">
+                                <label class="gw-profil-label">
+                                    Computerkenntnisse </label>
+                                <div class="progress">
+                                    <div class="progress-bar showspan stopgrowth" role="progressbar" aria-valuenow="84.615384615385" aria-valuemin="0" aria-valuemax="100" style="width: 84%;">
+                                        <span>unverzichtbar</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gw-profil-dimension">
+                                <label class="gw-profil-label">
+                                    vernetztes Denken </label>
+                                <div class="progress">
+                                    <div class="progress-bar showspan stopgrowth" role="progressbar" aria-valuenow="76.923076923077" aria-valuemin="0" aria-valuemax="100" style="width: 76%;">
+                                        <span>unverzichtbar</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gw-profil-dimension">
+                                <label class="gw-profil-label">
+                                    logisches Denken </label>
+                                <div class="progress">
+                                    <div class="progress-bar showspan stopgrowth" role="progressbar" aria-valuenow="69.230769230769" aria-valuemin="0" aria-valuemax="100" style="width: 69%;">
+                                        <span>sehr
+                                            wichtig</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gw-profil-dimension">
+                                <label class="gw-profil-label">
+                                    Sprachbegabung </label>
+                                <div class="progress">
+                                    <div class="progress-bar showspan stopgrowth" role="progressbar" aria-valuenow="61.538461538462" aria-valuemin="0" aria-valuemax="100" style="width: 61%;">
+                                        <span>sehr
+                                            wichtig</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gw-profil-dimension">
+                                <label class="gw-profil-label">
+                                    räumliches Vorstellungsvermögen </label>
+                                <div class="progress">
+                                    <div class="progress-bar showspan stopgrowth" role="progressbar" aria-valuenow="53.846153846154" aria-valuemin="0" aria-valuemax="100" style="width: 53%;">
+                                        <span>sehr
+                                            wichtig</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gw-profil-dimension">
+                                <label class="gw-profil-label">
+                                    Kommunikationsfähigkeit </label>
+                                <div class="progress">
+                                    <div class="progress-bar showspan stopgrowth" role="progressbar" aria-valuenow="46.153846153846" aria-valuemin="0" aria-valuemax="100" style="width: 46%;">
+                                        <span>wichtig</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="gw-profil-dimension">
+                                <label class="gw-profil-label">
+                                    Organisationstalent </label>
+                                <div class="progress">
+                                    <div class="progress-bar showspan stopgrowth" role="progressbar" aria-valuenow="38.461538461538" aria-valuemin="0" aria-valuemax="100" style="width: 38%;">
+                                        <span>wichtig</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="gw-profil-dimension">
+                                <label class="gw-profil-label">
+                                    Teamfähigkeit </label>
+                                <div class="progress">
+                                    <div class="progress-bar stopgrowth" role="progressbar" aria-valuenow="30.769230769231" aria-valuemin="0" aria-valuemax="100" style="width: 30%;">
+                                        <span>wichtig</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </td>
+                    <td class="ent_col" style="">
+                        <div class="col-md-6 bg-white gw-factsbox">
+
+                            <p class="gw-smalltext font-italic">
+                            </p>
+                            <div class="gw-profil-dimension">
+                                <label class="gw-profil-label">
+                                    Interesse an Medien und Kommunikation, Interesse an Informatik </label>
+                                <div class="progress">
+                                    <div class="progress-bar showspan stopgrowth" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 99%;">
+                                        <span>unverzichtbar</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gw-profil-dimension">
+                                <label class="gw-profil-label">
+                                    Sinn für Zahlen, logisches Denken, analytisches Denken </label>
+                                <div class="progress">
+                                    <div class="progress-bar showspan stopgrowth" role="progressbar" aria-valuenow="92.307692307692" aria-valuemin="0" aria-valuemax="100" style="width: 92%;">
+                                        <span>unverzichtbar</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gw-profil-dimension">
+                                <label class="gw-profil-label">
+                                    Kommunikationsfähigkeit, sicheres Auftreten </label>
+                                <div class="progress">
+                                    <div class="progress-bar showspan stopgrowth" role="progressbar" aria-valuenow="84.615384615385" aria-valuemin="0" aria-valuemax="100" style="width: 84%;">
+                                        <span>unverzichtbar</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gw-profil-dimension">
+                                <label class="gw-profil-label">
+                                    Teamfähigkeit </label>
+                                <div class="progress">
+                                    <div class="progress-bar showspan stopgrowth" role="progressbar" aria-valuenow="76.923076923077" aria-valuemin="0" aria-valuemax="100" style="width: 76%;">
+                                        <span>unverzichtbar</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gw-profil-dimension">
+                                <label class="gw-profil-label">
+                                    Organisationstalent </label>
+                                <div class="progress">
+                                    <div class="progress-bar showspan stopgrowth" role="progressbar" aria-valuenow="69.230769230769" aria-valuemin="0" aria-valuemax="100" style="width: 69%;">
+                                        <span>sehr
+                                            wichtig</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gw-profil-dimension">
+                                <label class="gw-profil-label">
+                                    exakte Arbeitsweise, Sorgfalt, Qualitätsbewusstsein </label>
+                                <div class="progress">
+                                    <div class="progress-bar showspan stopgrowth" role="progressbar" aria-valuenow="61.538461538462" aria-valuemin="0" aria-valuemax="100" style="width: 61%;">
+                                        <span>sehr
+                                            wichtig</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gw-profil-dimension">
+                                <label class="gw-profil-label">
+                                    Selbstständigkeit, Selbstreflexion </label>
+                                <div class="progress">
+                                    <div class="progress-bar showspan stopgrowth" role="progressbar" aria-valuenow="53.846153846154" aria-valuemin="0" aria-valuemax="100" style="width: 53%;">
+                                        <span>sehr
+                                            wichtig</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gw-profil-dimension">
+                                <label class="gw-profil-label">
+                                    Lernfreude </label>
+                                <div class="progress">
+                                    <div class="progress-bar showspan stopgrowth" role="progressbar" aria-valuenow="46.153846153846" aria-valuemin="0" aria-valuemax="100" style="width: 46%;">
+                                        <span>wichtig</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gw-profil-dimension">
+                                <label class="gw-profil-label">
+                                    gestalterische Begabung, Kreativität </label>
+                                <div class="progress">
+                                    <div class="progress-bar showspan stopgrowth" role="progressbar" aria-valuenow="38.461538461538" aria-valuemin="0" aria-valuemax="100" style="width: 38%;">
+                                        <span>wichtig</span>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="gw-profil-dimension">
+                                <label class="gw-profil-label">
+                                    Offenheit, Experimentierfreude </label>
+                                <div class="progress">
+                                    <div class="progress-bar stopgrowth" role="progressbar" aria-valuenow="30.769230769231" aria-valuemin="0" aria-valuemax="100" style="width: 30%;">
+                                        <span>wichtig</span>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+
+    </div>
+</body>
+
+</html>
