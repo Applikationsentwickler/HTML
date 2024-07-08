@@ -1,0 +1,206 @@
+[
+  {
+    "name": "ICT-Fachmann/-frau EFZ",
+    "tätigkeiten": [
+        "installieren",
+        "vernetzen",
+        "erklären",
+        "anschliessen",
+        "beraten",
+        "programmieren"
+    ],
+    "zutritt": "Abgeschlossene Volksschule, mittlere oder obere Stufe vorteilhaft. Gute Leistungen in Mathematik und Naturwissenschaften.",
+    "ausbildung": "3 Jahre berufliche Grundbildung in einem IT-, Dienstleistungs-, Industrie- und Gewerbebetrieb oder in einer öffentlichen Verwaltung.",
+    "sonnenseite": "In diesem Beruf wird man täglich vor neue Aufgaben gestellt, da ist Langeweile ausgeschlossen. Auch haben ICT-Fachleute Kundenkontakt. Wer kommunikationsfreudig ist, Programme und Funktionen gut erklären kann, kommt in diesem Beruf voll auf seine Kosten.",
+    "schattenseite": "Nicht jedes Informatik-Problem ist einfach zu lösen und nicht alle Kunden und Anwenderinnen sind unkompliziert. Geduld ist gefragt, wenn komplexe Vorgänge begreifbar gemacht werden müssen.",
+    "gut_zu_wissen": "ICT-Fachleute sind gefragte Berufsleute, weil die Digitalisierung immer mehr Arbeits- und Lebensbereiche durchdringt. Der Beruf ist jedoch nur etwas für lernfreudige Menschen, denn die ICT-Branche ist geprägt durch ständige Veränderung, Weiterentwicklung und Innovation. Es ist deshalb zwingend notwendig, sich laufend weiterzubilden, um jederzeit auf dem aktuellsten Stand zu sein.",
+    "top_10_anforderungen": {
+      "unverzichtbar": [
+        "Interesse an Informatik",
+        "Kombinationsfähigkeit",
+        "rasche Auffassungsgabe",
+        "Konzentrationsfähigkeit",
+        "analytisches Denken",
+        "Kommunikationsfähigkeit"
+      ],
+      "sehr_wichtig": [
+        "Interesse an Kundenkontakt",
+        "technisches Verständnis",
+        "Lösungsorientierung"
+      ],
+      "wichtig": [
+        "Teamfähigkeit", 
+        "Offenheit",
+        "Zuverlässigkeit", 
+        "exakte Arbeitsweise",
+        "manuelles Geschick"
+      ]
+    },
+    "Weiterbildung": {
+      "kurse": "Angebote von Berufs- und Fachschulen, Hochschulen, verschiedenen Fachverbänden sowie von Software- und Hardware-Lieferanten",
+      "höhere_fachprüfung": "Dipl. ICT-Manager/in, dipl. ICT Security Expert"
+    }
+  },
+  {
+    "name": "Informatiker/in EFZ",
+    "tätigkeiten": [
+      "planen",
+      "entwickeln",
+      "installieren",
+      "testen",
+      "warten",
+      "instruieren"
+    ],
+    "zutritt": "Abgeschlossene Volksschule, oberste Stufe. Gute Leistungen in Mathematik und Englisch.",
+    "ausbildung": "4 Jahre berufliche Grundbildung. Ab dem 2. Lehrjahr gibt es Spezialisierungen je nach Fachrichtung. Mit Matura ist eine verkürzte 2-jährige Grundbildung (way up) möglich.",
+    "sonnenseite": "Informatikerinnen und Informatiker lösen immer wieder neue Aufgaben, ihr Können ist ständig gefordert. Sie sind in einem breiten Feld tätig und meist nur begrenzt an einen festen Arbeitsplatz gebunden.",
+    "schattenseite": "Der Beruf fordert ständige Weiterbildung. Bei Projekten ist der Zeitdruck hoch. Die Anforderungen an Auffassungsgabe, Ausdauer und Konzentrationsfähigkeit sind überdurchschnittlich.",
+    "gut_zu_wissen": "Informatiker und Informatikerinnen arbeiten mit modernen Technologien und entwickeln Lösungen, die sich durch sparsamen Mitteleinsatz und hohe Systematik auszeichnen. Dabei geht es in der Regel um klar strukturierte Problemstellungen, für die es eine Lösung zu finden gilt.",
+    "top_10_anforderungen": {
+      "unverzichtbar": [
+        "logisches Denken",
+        "Abstraktionsvermögen",
+        "Kombinationsfähigkeit",
+        "rasche Auffassungsgabe",
+        "Ausdauer",
+        "Konzentrationsfähigkeit",
+        "Kommunikationsfähigkeit",
+        "Teamfähigkeit"
+      ],
+      "sehr_wichtig": [
+        "Lernfreude",
+        "Offenheit",
+        "Organisationstalent",
+        "Selbstständigkeit",
+        "Ausdrucksfähigkeit",
+        "sicheres Auftreten"
+      ],
+      "wichtig": [
+        "exakte Arbeitsweise", 
+        "technisches Verständnis",
+        "Vorstellungsvermögen", 
+        "manuelles Geschick",
+        "Begeisterungsfähigkeit"
+      ]
+    }
+  },
+  {
+    "name": "Mediamatiker/in EFZ",
+    "tätigkeiten": [
+      "kommunizieren",
+      "gestalten",
+      "organisieren",
+      "planen",
+      "dokumentieren"
+    ],
+    "zutritt": "Abgeschlossene Volksschulstufe, obere Stufe vorteilhaft, mit guten Leistungen in Mathematik und Sprachen.",
+    "ausbildung": "4 Jahre berufliche Grundbildung. Mit gymnasialer Matura ist eine verkürzte 2-jährige Grundbildung (way-up) möglich.",
+    "sonnenseite": "Mediamatiker und Mediamatikerinnen verfügen über breite Kenntnisse der neuen Medien. Sie arbeiten an interessanten, zukunftsorientierten Projekten und setzen sich mit neuen Geräten, Programmen und Möglichkeiten am Computer auseinander. Sie finden in jeder Art von Unternehmen Tätigkeiten.",
+    "schattenseite": "Je nach Tätigkeitsbereich kann es manchmal hektisch sein: Eine Videokonferenz soll kurzfristig organisiert werden, eine wichtige Kundenpräsentation in letzter Minute erstellt oder geändert werden, diverse Aktualisierungsarbeiten stehen gleichzeitig an und vieles mehr.",
+    "gut_zu_wissen": "Mediamatiker/in ist ein kreativer Beruf am Computer, der Kreativität sind keine Grenzen gesetzt. Trotzdem gilt es meistens, die Produkte gemäss Vorgaben umzusetzen. Die Tätigkeit erfordert Kenntnisse im technischen und im betriebswirtschaftlichen Bereich.",
+    "top_10_anforderungen": {
+      "unverzichtbar": [
+        "Interesse an Informatik", 
+        "Interesse an Medien",
+        "Kommunikation",
+        "logisches Denken", 
+        "Abstraktionsvermögen",
+        "rasche Auffassungsgabe",
+        "Kommunikationsfähigkeit", 
+        "Teamfähigkeit"
+      ],
+      "sehr_wichtig": [
+        "Flexibilität", 
+        "Offenheit",
+        "Kreativität",
+        "Selbstständigkeit"
+      ],
+      "wichtig": [
+        "speditive Arbeitsweise", 
+        "Experimentierfreude", 
+        "Lernfreude",
+        "Vorstellungsvermögen", 
+        "gute Umgangsformen"
+      ]
+    }
+  },
+  {
+    "name": "Interactive Media Designer/in EFZ",
+    "tätigkeiten": [
+      "konzipieren",
+      "gestalten",
+      "präsentieren",
+      "entwickeln",
+      "organisieren",
+      "beraten"
+    ],
+    "zutritt": "Abgeschlossene Volksschule. Bestandener Eignungstest. Gute Leistungen in Englisch sind von Vorteil.",
+    "ausbildung": "4 Jahre berufliche Grundbildung. Berufsfachschule 2 Tage pro Woche im ersten und zweiten, 1 Tag pro Woche im dritten und vierten Lehrjahr.",
+    "sonnenseite": "Interactive Media Designer bestimmen die Inhalte, das Design, die Funktionen und die Interaktionen digitaler Kommunikationsmittel und setzen diese mittels handwerklicher Techniken und entsprechender Hard- und Software gemäss Konzept um. Das ist eine äusserst kreative Tätigkeit.",
+    "schattenseite": "Bei der Ausübung ihrer Tätigkeit müssen Interactive Media Designer viel sitzend am Bildschirm arbeiten. Die Tätigkeit ist deshalb nicht geeignet für Personen mit ausgeprägtem Bewegungsdrang.",
+    "gut_zu_wissen": "Interactive Media Design ist ein neuer und äusserst attraktiver Beruf, der stetem Wandel unterworfen ist. Was heute noch hip und modern ist, ist morgen bereits von gestern und veraltet. Entsprechend flexibel müssen die Berufsleute sein. Weiterbildung ist hier ein Muss, denn in Zukunft werden sie auch für digitale Medien zuständig sein, die heute noch gar nicht existieren.",
+    "top_10_anforderungen": {
+      "unverzichtbar": [
+        "gestalterische Begabung", 
+        "Sinn für Farben", 
+        "Sinn für Formen",
+        "Computerkenntnisse",
+        "vernetztes Denken"
+      ],
+      "sehr_wichtig": [
+        "logisches Denken", 
+        "Sprachbegabung",
+        "räumliches Vorstellungsvermögen"
+      ],
+      "wichtig": [
+        "Kommunikationsfähigkeit", 
+        "Organisationstalent", 
+        "Teamfähigkeit"
+      ]
+    }
+  },
+  {
+    "name": "Entwickler/in digitales Business EFZ",
+    "tätigkeiten": [
+      "strukturieren",
+      "entwickeln",
+      "analysieren",
+      "auswerten",
+      "visualisieren",
+      "kommunizieren"
+    ],
+    "zutritt": "Abgeschlossene Volksschule.",
+    "ausbildung": "4 Jahre berufliche Grundbildung. Der Beruf ist brandneu, innovativ und zukunftsorientiert.",
+    "sonnenseite": "Entwickler und Entwicklerinnen digitales Business konzentrieren sich darauf, durch geeignete Daten Klarheit zu schaffen, zu entwirren, Opportunitäten und Lösungen aufzuzeigen. Sie nehmen eine wichtige Rolle im Rahmen der fortschreitenden Digitalisierung ein. Die Geschäftswelt dankt es ihnen.",
+    "schattenseite": "Die technologische Entwicklung schreitet rasant voran, während die erforderliche Umgestaltung der Prozesse deutlich mehr Zeit und manchmal auch Veränderungswillen bedarf.",
+    "gut_zu_wissen": "Entwickler und Entwicklerinnen digitales Business arbeiten meist in mittleren und grossen Unternehmen, Banken, Versicherungsgesellschaften, Verkehrsbetriebe, Industrieunternehmen, Spitäler, Bildungsinstitutionen, Telekommunikationsunternehmen, Consulting, etc.",
+    "top_10_anforderungen": {
+      "unverzichtbar": [
+        "Interesse an Medien", 
+        "Kommunikation", 
+        "Interesse an Informatik", 
+        "Sinn für Zahlen", 
+        "logisches Denken", 
+        "analytisches Denken", 
+        "Kommunikationsfähigkeit", 
+        "sicheres Auftreten",
+        "Teamfähigkeit"
+      ],
+      "sehr_wichtig": [
+        "Organisationstalent", 
+        "exakte Arbeitsweise", 
+        "Sorgfalt", 
+        "Qualitätsbewusstsein",
+        "Selbstständigkeit", 
+        "Selbstreflexion"
+      ],
+      "wichtig": [
+        "Lernfreude", 
+        "gestalterische Begabung", 
+        "Kreativität", 
+        "Offenheit", 
+        "Experimentierfreude"
+      ]
+    }
+  }
+]
